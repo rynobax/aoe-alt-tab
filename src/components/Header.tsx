@@ -1,25 +1,15 @@
 import { Link } from "gatsby"
 import React from "react"
+import styled from "styled-components"
 
 interface HeaderProps {
-  siteTitle: string;
+  siteTitle: string
 }
 
 const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+  <CustomHeader>
+    <Something>
+      <CustomH1>
         <Link
           to="/"
           style={{
@@ -29,9 +19,24 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
-      </h1>
-    </div>
-  </header>
+      </CustomH1>
+    </Something>
+  </CustomHeader>
 )
+
+const CustomHeader = styled.header`
+  background: rebeccapurple;
+  margin-bottom: 24px;
+`
+
+const Something = styled.div`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 24px 16px;
+`
+
+const CustomH1 = styled.h1`
+  margin: 0;
+`
 
 export default Header
