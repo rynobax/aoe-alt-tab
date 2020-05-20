@@ -1,7 +1,8 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+require("source-map-support").install();
+require("ts-node").register();
 
-// You can delete this file if you're not using it
+const { createWiki } = require("./sources/wiki/wiki");
+
+exports.sourceNodes = (stuff) => {
+  createWiki(stuff);
+};
