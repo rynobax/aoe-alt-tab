@@ -35,25 +35,27 @@ const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
   return (
     <CustomHeader>
       <HeaderText>AoE Alt Tab</HeaderText>
-      <ComboLabel {...getLabelProps()}>Civ:</ComboLabel>
-      <ComboContainer {...getComboboxProps()}>
-        <ComboInput {...getInputProps()} />
-        <ComboMenu {...getMenuProps()}>
-          {isOpen &&
-            items.map((item, index) => (
-              <ComboMenuItem
-                style={
-                  highlightedIndex === index
-                    ? { backgroundColor: "#bde4ff" }
-                    : {}
-                }
-                key={`${item}${index}`}
-                {...getItemProps({ item, index })}
-              >
-                {item}
-              </ComboMenuItem>
-            ))}
-        </ComboMenu>
+      <ComboContainer>
+        <ComboLabel {...getLabelProps()}>Select a Civ:</ComboLabel>
+        <Combo {...getComboboxProps()}>
+          <ComboInput {...getInputProps()} />
+          <ComboMenu {...getMenuProps()}>
+            {isOpen &&
+              items.map((item, index) => (
+                <ComboMenuItem
+                  style={
+                    highlightedIndex === index
+                      ? { backgroundColor: "#bde4ff" }
+                      : {}
+                  }
+                  key={`${item}${index}`}
+                  {...getItemProps({ item, index })}
+                >
+                  {item}
+                </ComboMenuItem>
+              ))}
+          </ComboMenu>
+        </Combo>
       </ComboContainer>
     </CustomHeader>
   );
@@ -68,11 +70,20 @@ const CustomHeader = styled.header(
 `
 );
 
-const ComboContainer = styled.div``;
+const ComboContainer = styled.div`
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
-const ComboLabel = styled.h2``;
+const Combo = styled.div``;
 
-const INPUT_PADDING = 4;
+const ComboLabel = styled.h2`
+  color: white;
+  font-size: 24px;
+  margin-right: 12px;
+`;
 
 const ComboInput = styled.input`
   width: 200px;
