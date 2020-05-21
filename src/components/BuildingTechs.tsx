@@ -162,7 +162,7 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
         )
           return null;
         return (
-          <Row>
+          <Row key={row.join('-')}>
             {row.map((k) => {
               const haveIt = tree[building][k];
               const imageName = `${nameForWiki(k)}${
