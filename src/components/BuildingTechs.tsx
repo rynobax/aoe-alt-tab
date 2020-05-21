@@ -128,6 +128,7 @@ const alwaysShow = [
   "faith",
   "bombardCannon",
   "bloodlines",
+  "fireGalley",
 ];
 
 interface BuildingTechsProps {
