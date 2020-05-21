@@ -3,4 +3,6 @@ const theme = {
   tan: '#E4D9B6'
 }
 
+export type Theme = typeof theme;
+
 export default theme

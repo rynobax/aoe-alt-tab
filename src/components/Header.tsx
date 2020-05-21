@@ -1,42 +1,40 @@
-import { Link } from "gatsby"
-import React from "react"
-import styled from "styled-components"
+import { Link } from "gatsby";
+import React from "react";
+import styled from "styled-components";
 
 interface HeaderProps {
-  siteTitle: string
+  civs: string[];
+  onCivChange: (civ: string) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
+const Header: React.FC<HeaderProps> = ({ civs, onCivChange }) => (
   <CustomHeader>
-    <Something>
-      <CustomH1>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </CustomH1>
-    </Something>
+    <HeaderText>AoE Alt Tab</HeaderText>
+    <select onChange={(e) => onCivChange(e.target.value)}>
+      {civs.map((civ) => (
+        <option value={civ} key={civ}>
+          {civ}
+        </option>
+      ))}
+    </select>
   </CustomHeader>
-)
+);
 
-const CustomHeader = styled.header`
-  background: rebeccapurple;
+const CustomHeader = styled.header(
+  (p) => `
+  background: ${p.theme.red};
   margin-bottom: 24px;
+  padding: 8px 24px;
+  display: flex;
+  flex-direction: row;
 `
+);
 
-const Something = styled.div`
-  margin: 0 auto;
-  max-width: 960px;
-  padding: 24px 16px;
-`
+const HeaderText = styled.h1`
+  color: white;
+  font-size: 32px;
+  font-family: "Titillium Web";
+  font-weight: 700;
+`;
 
-const CustomH1 = styled.h1`
-  margin: 0;
-`
-
-export default Header
+export default Header;

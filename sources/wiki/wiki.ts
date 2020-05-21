@@ -24,7 +24,7 @@ interface Characteristics {
   teamBonuses: string[];
 }
 
-interface Civ {
+export interface Civ {
   name: string;
   characteristics: Characteristics;
   techTree: TechTree;
