@@ -221,7 +221,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const allCivs = data.allCiv.nodes;
   const images = data.allFile.nodes;
 
-  const [startTransition, pending] = useTransition({ timeoutMs: 500 });
+  const [startTransition, pending] = useTransition({ timeoutMs: 750 });
   const [civName, setCivName] = useState(
     allCivs[random(0, allCivs.length - 1)].name
   );
