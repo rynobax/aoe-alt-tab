@@ -58,7 +58,7 @@ async function getWikiPages(
 const extractNameAndDesc = (str: string) => {
   const res = />\s*(?<name>.+?): (?<desc>.+)/.exec(str);
   if (!res) throw Error(`Could not extract name and desc from ${str}`);
-  return { name: res[1], description: res[2] };
+  return { name: cleanWikiText(res[1]), description: cleanWikiText(res[2]) };
 };
 
 const getUniqueUnitsSection = ($: CheerioStatic) => {
@@ -70,6 +70,10 @@ const getUniqueUnitsSection = ($: CheerioStatic) => {
   } else {
     return singular;
   }
+};
+
+const cleanWikiText = (str: string) => {
+  return str.trim().replace(/\[\d*\]/g, "");
 };
 
 function parseMainPage(page: string): Characteristics {
@@ -95,7 +99,7 @@ function parseMainPage(page: string): Characteristics {
     .children()
     .toArray()
     .map((c) => $(c).text())
-    .map((e) => (e as string).trim());
+    .map(cleanWikiText);
 
   const teamBonus = $("#Team_bonus")
     .parent()
@@ -103,7 +107,7 @@ function parseMainPage(page: string): Characteristics {
     .children()
     .toArray()
     .map((c) => $(c).text())
-    .map((e) => (e as string).trim())[0];
+    .map(cleanWikiText)[0];
 
   return {
     uniqueUnits,

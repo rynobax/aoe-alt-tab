@@ -218,8 +218,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const techImages = data.allFile.nodes;
 
   const [civName, setCivName] = useState(
-    "Cumans"
-    // allCivs[random(0, allCivs.length - 1)].name
+    allCivs[random(0, allCivs.length - 1)].name
   );
 
   const civ = allCivs.find((e) => e.name === civName);
