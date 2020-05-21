@@ -1,17 +1,11 @@
-import { allCivs } from "./civs";
 import * as got from "got";
 import * as cheerio from "cheerio";
-import * as t from "io-ts";
+import * as _ from "lodash";
 
-// const Civ = t.type({
-//   uniqueUnit: t.type({
-//     name: t.string,
-//     description: t.string,
-//   }),
-//   name: t.string
-// })
+import { allCivs } from "./constants/civlist";
+import { baseTechTree, TechTree } from "./constants/techs";
 
-interface Civ {
+interface Characteristics {
   uniqueUnits: Array<{
     name: string;
     description: string;
@@ -30,35 +24,57 @@ interface Civ {
   teamBonuses: string[];
 }
 
-export const createWiki = ({ actions, createNodeId, createContentDigest }) => {
-  const pokemons = [
-    { name: "Pikachu", type: "electric" },
-    { name: "Squirtle", type: "water" },
-  ];
-  pokemons.forEach((pokemon) => {
+interface Civ {
+  name: string;
+  characteristics: Characteristics;
+  techTree: TechTree;
+}
+
+export const createWiki = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const civs = await Promise.all(
+    allCivs.map(async (civ) => {
+      const pages = await getWikiPages(civ);
+      const characteristics = parseMainPage(pages.main);
+      const techTree = parseTechPage(pages.tech);
+      const civInfo: Civ = { name: civ, characteristics, techTree };
+      return civInfo;
+    })
+  );
+  civs.forEach((civ) => {
     const node = {
-      name: pokemon.name,
-      type: pokemon.type,
-      id: createNodeId(`Pokemon-${pokemon.name}`),
+      ...civ,
+      id: createNodeId(`Civ-${civ.name}`),
       internal: {
-        type: "Pokemon",
-        contentDigest: createContentDigest(pokemon),
+        type: "Civ",
+        contentDigest: createContentDigest(civ),
       },
     };
     actions.createNode(node);
   });
 };
 
-async function getWikiPage(civ: string) {
-  const url = `https://ageofempires.fandom.com/wiki/${civ}`;
-  const res = await got(url);
-  if (res.body.includes('id="disambigbox"')) {
-    const aoe2Url = url + "_(Age_of_Empires_II)";
-    const newRes = await got(aoe2Url);
-    return newRes.body;
+async function getWikiPages(
+  civ: string
+): Promise<{ main: string; tech: string }> {
+  let url = `https://ageofempires.fandom.com/wiki/${civ}`;
+  const mainRes = await got(url);
+
+  let main: string;
+  if (mainRes.body.includes('id="disambigbox"')) {
+    url = `${url}_(Age_of_Empires_II)`;
+    const newRes = await got(url);
+    main = newRes.body;
   } else {
-    return res.body;
+    main = mainRes.body;
   }
+
+  const techRes = await got(`${url}/Tree`);
+
+  return { main, tech: techRes.body };
 }
 
 const extractNameAndDesc = (str: string) => {
@@ -78,7 +94,7 @@ const getUniqueUnitsSection = ($: CheerioStatic) => {
   }
 };
 
-function parseWikiPage(page: string): Civ {
+function parseMainPage(page: string): Characteristics {
   const $ = cheerio.load(page);
 
   const uniqueUnits = getUniqueUnitsSection($)
@@ -128,19 +144,49 @@ function parseWikiPage(page: string): Civ {
   };
 }
 
-async function main() {
-  // for (const civ of allCivs) {
-  //   console.log(`**** ${civ} ****`);
-  //   const text = await getWikiPage(civ);
-  //   const res = parseWikiPage(text);
-  //   console.log(res);
-  // }
-  const text = await getWikiPage("Vikings");
-  const res = parseWikiPage(text);
-  console.log(res);
+function checkIfMissing($: CheerioStatic, thing: string) {
+  const prefix = _.capitalize(thing.toLowerCase());
+  const hasUnit = $(`img[alt="${prefix}available"]`);
+  const missingUnit = $(`img[alt="${prefix}unavailable"]`);
+
+  if (hasUnit.length === 0 && missingUnit.length === 0)
+    throw Error(`Could not find whether they have ${thing}`);
+
+  return missingUnit.length === 1;
 }
 
-main()
-  .then(console.log)
-  .catch(console.error)
-  .then(() => console.log("done"));
+function parseTechPage(page: string): TechTree {
+  const $ = cheerio.load(page);
+  const techTree = baseTechTree();
+  Object.entries(techTree).forEach(([building, tree]) => {
+    if ("units" in tree) {
+      Object.keys(tree.units).forEach((unit) => {
+        const isMissing = checkIfMissing($, unit);
+        if (isMissing) techTree[building].units[unit] = false;
+      });
+    }
+    if ("techs" in tree) {
+      Object.keys(tree.techs).forEach((tech) => {
+        const isMissing = checkIfMissing($, tech);
+        if (isMissing) techTree[building].techs[tech] = false;
+      });
+    }
+  });
+  return techTree;
+}
+
+// async function main() {
+//   for (const civ of allCivs) {
+//     console.log(`**** ${civ} ****`);
+//     const pages = await getWikiPages(civ);
+//     const characteristics = parseMainPage(pages.main);
+//     const techTree = parseTechPage(pages.tech);
+//     const civInfo: Civ = { characteristics, techTree };
+//     // console.log(civInfo);
+//   }
+// }
+
+// main()
+//   .then(console.log)
+//   .catch(console.error)
+//   .then(() => console.log("done"));
