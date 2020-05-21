@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useCombobox } from "downshift";
 
 interface HeaderProps {
   civs: string[];
@@ -9,52 +8,22 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
-  const [items, setItems] = useState(civs);
-
-  const {
-    isOpen,
-    getLabelProps,
-    getMenuProps,
-    getInputProps,
-    getComboboxProps,
-    highlightedIndex,
-    getItemProps,
-  } = useCombobox({
-    items,
-    selectedItem: selectedCiv,
-    onSelectedItemChange: (e) => e.selectedItem && onCivChange(e.selectedItem),
-    onInputValueChange: ({ inputValue }) => {
-      setItems(
-        civs.filter((item) =>
-          item.toLowerCase().startsWith(inputValue.toLowerCase())
-        )
-      );
-    },
-  });
-
   return (
     <CustomHeader>
       <HeaderText>AoE Alt Tab</HeaderText>
       <ComboContainer>
-        <ComboLabel {...getLabelProps()}>Select a Civ:</ComboLabel>
-        <Combo {...getComboboxProps()}>
-          <ComboInput {...getInputProps()} />
-          <ComboMenu {...getMenuProps()}>
-            {isOpen &&
-              items.map((item, index) => (
-                <ComboMenuItem
-                  style={
-                    highlightedIndex === index
-                      ? { backgroundColor: "#bde4ff" }
-                      : {}
-                  }
-                  key={`${item}${index}`}
-                  {...getItemProps({ item, index })}
-                >
-                  {item}
-                </ComboMenuItem>
-              ))}
-          </ComboMenu>
+        <ComboLabel>Select a Civ:</ComboLabel>
+        <Combo>
+          <ComboSelect
+            value={selectedCiv}
+            onChange={(e) => onCivChange(e.target.value)}
+          >
+            {civs.map((civ) => (
+              <ComboOption key={civ} value={civ}>
+                {civ}
+              </ComboOption>
+            ))}
+          </ComboSelect>
         </Combo>
       </ComboContainer>
     </CustomHeader>
@@ -85,28 +54,13 @@ const ComboLabel = styled.h2`
   margin-right: 12px;
 `;
 
-const ComboInput = styled.input`
+const ComboSelect = styled.select`
   width: 200px;
   padding: 8px;
   font-size: 16px;
 `;
 
-const ComboMenu = styled.ul`
-  width: 212px;
-  max-height: 200px;
-  overflow-y: auto;
-  position: absolute;
-  margin: 0px;
-  border-top: 0px;
-  background: white;
-  padding-left: 8px;
-`;
-
-const ComboMenuItem = styled.li`
-  width: 100%;
-  padding-top: 3px;
-  padding-bottom: 3px;
-`;
+const ComboOption = styled.option``;
 
 const HeaderText = styled.h1`
   color: white;
