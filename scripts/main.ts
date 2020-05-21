@@ -16,6 +16,7 @@ async function main() {
     JSON.stringify(civs, null, 2)
   );
 
+
   if (!fs.existsSync("src/images/techs")) {
     fs.mkdirSync("src/images/techs");
   }
@@ -25,7 +26,7 @@ async function main() {
   await Promise.all(
     techImages.map(async ({ name, url }) => {
       const outPath = `src/images/techs/${name}.png`;
-      const img = await pipeline(
+      await pipeline(
         got.stream(url),
         fs.createWriteStream(outPath)
       );

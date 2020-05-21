@@ -4,31 +4,7 @@ import * as _ from "lodash";
 import { allCivs } from "./static";
 import { nameForWiki } from "./util";
 import { TechTree, baseTechTree } from "../sources/wiki/data/techs";
-
-interface Characteristics {
-  uniqueUnits: Array<{
-    name: string;
-    description: string;
-  }>;
-  uniqueTechs: {
-    castleAge: {
-      name: string;
-      description: string;
-    };
-    imperialAge: {
-      name: string;
-      description: string;
-    };
-  };
-  civBonuses: string[];
-  teamBonuses: string[];
-}
-
-export interface Civ {
-  name: string;
-  characteristics: Characteristics;
-  techTree: TechTree;
-}
+import { Civ, Characteristics } from "../sources/wiki/wiki";
 
 interface TechImage {
   name: string;
@@ -121,13 +97,13 @@ function parseMainPage(page: string): Characteristics {
     .map((c) => $(c).text())
     .map((e) => (e as string).trim());
 
-  const teamBonuses = $("#Team_bonus")
+  const teamBonus = $("#Team_bonus")
     .parent()
     .next()
     .children()
     .toArray()
     .map((c) => $(c).text())
-    .map((e) => (e as string).trim());
+    .map((e) => (e as string).trim())[0];
 
   return {
     uniqueUnits,
@@ -142,7 +118,7 @@ function parseMainPage(page: string): Characteristics {
       },
     },
     civBonuses,
-    teamBonuses,
+    teamBonus,
   };
 }
 
@@ -176,18 +152,10 @@ function parseTechPage(page: string, techImages: TechImage[]): TechTree {
   const $ = cheerio.load(page);
   const techTree = baseTechTree();
   Object.entries(techTree).forEach(([building, tree]) => {
-    if ("units" in tree) {
-      Object.keys(tree.units).forEach((unit) => {
-        const isMissing = checkIfMissing($, unit, techImages);
-        if (isMissing) techTree[building].units[unit] = false;
-      });
-    }
-    if ("techs" in tree) {
-      Object.keys(tree.techs).forEach((tech) => {
-        const isMissing = checkIfMissing($, tech, techImages);
-        if (isMissing) techTree[building].techs[tech] = false;
-      });
-    }
+    Object.keys(tree).forEach((tech) => {
+      const isMissing = checkIfMissing($, tech, techImages);
+      if (isMissing) techTree[building][tech] = false;
+    });
   });
   return techTree;
 }

@@ -4,13 +4,14 @@ import styled from "styled-components";
 
 interface HeaderProps {
   civs: string[];
+  selectedCiv: string;
   onCivChange: (civ: string) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ civs, onCivChange }) => (
+const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => (
   <CustomHeader>
     <HeaderText>AoE Alt Tab</HeaderText>
-    <select onChange={(e) => onCivChange(e.target.value)}>
+    <select value={selectedCiv} onChange={(e) => onCivChange(e.target.value)}>
       {civs.map((civ) => (
         <option value={civ} key={civ}>
           {civ}
@@ -23,7 +24,6 @@ const Header: React.FC<HeaderProps> = ({ civs, onCivChange }) => (
 const CustomHeader = styled.header(
   (p) => `
   background: ${p.theme.red};
-  margin-bottom: 24px;
   padding: 8px 24px;
   display: flex;
   flex-direction: row;

@@ -13,13 +13,14 @@ import "./reset.css";
 
 interface LayoutProps {
   civs: string[];
+  selectedCiv: string;
   onCivChange: (civ: string) => void;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, civs, onCivChange }) => {
+const Layout: React.FC<LayoutProps> = ({ children, civs, selectedCiv, onCivChange }) => {
   return (
     <Container>
-      <Header civs={civs} onCivChange={onCivChange} />
+      <Header civs={civs} selectedCiv={selectedCiv} onCivChange={onCivChange} />
       <Main>{children}</Main>
       <Footer>
         © {new Date().getFullYear()}, Built with
@@ -34,6 +35,8 @@ const Main = styled.main(
   (p) => `
   background: ${p.theme.tan};
   flex: 1;
+  display: flex;
+  padding: 8px;
 `
 );
 

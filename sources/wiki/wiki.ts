@@ -4,7 +4,7 @@ import * as _ from "lodash";
 
 import { TechTree } from "./data/techs";
 
-interface Characteristics {
+export interface Characteristics {
   uniqueUnits: Array<{
     name: string;
     description: string;
@@ -20,7 +20,7 @@ interface Characteristics {
     };
   };
   civBonuses: string[];
-  teamBonuses: string[];
+  teamBonus: string;
 }
 
 export interface Civ {

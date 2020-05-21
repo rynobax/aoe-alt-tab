@@ -13,7 +13,13 @@ import { Civ } from "../../sources/wiki/wiki";
 import CivOverview from "../components/CivOverview";
 
 export const query = graphql`
-  query Civs {
+  query {
+    allFile {
+      nodes {
+        relativePath
+        publicURL
+      }
+    }
     allCiv {
       nodes {
         name
@@ -195,12 +201,22 @@ export const query = graphql`
   }
 `;
 
+export interface TechImage {
+  relativePath: string;
+  publicURL: string;
+}
+
 interface IndexPageProps {
-  data: { allCiv: { nodes: Civ[] } };
+  data: {
+    allCiv: { nodes: Civ[] };
+    allFile: { nodes: TechImage[] };
+  };
 }
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const allCivs = data.allCiv.nodes;
+  const techImages = data.allFile.nodes;
+
   const [civName, setCivName] = useState(
     allCivs[random(0, allCivs.length - 1)].name
   );
@@ -216,7 +232,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         onCivChange={(e) => setCivName(e)}
       >
         <SEO title="Home" />
-        <CivOverview civ={civ} />
+        <CivOverview civ={civ} techImages={techImages} />
       </Layout>
     </ThemeProvider>
   );

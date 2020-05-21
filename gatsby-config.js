@@ -32,7 +32,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Titillium Web:400,700", "Inter:400"],
+          families: ["Titillium Web:400,700", "Inter:400,700"],
         },
       },
     },
