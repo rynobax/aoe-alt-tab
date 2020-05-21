@@ -1,0 +1,222 @@
+[
+  {
+    "name": "Aztecs",
+    "characteristics": {
+      "uniqueUnits": [
+        {
+          "name": "Jaguar Warrior",
+          "description": "Strong infantry with an attack bonus against other infantry"
+        }
+      ],
+      "uniqueTechs": {
+        "castleAge": {
+          "name": "Atlatl",
+          "description": "Gives Skirmishers +1 attack and range."
+        },
+        "imperialAge": {
+          "name": "Garland Wars",
+          "description": "Gives infantry +4 attack."
+        }
+      },
+      "civBonuses": [
+        "Start the game with an Eagle Scout.",
+        "Villagers carry +5 extra resources.",
+        "All military units are created 18% faster.",
+        "Monks gain 5 HP for every researched Monastery technology.",
+        "Start with +50 gold."
+      ],
+      "teamBonuses": ["Relics generate +33% gold."]
+    },
+    "techTree": {
+      "archeryRange": {
+        "units": {
+          "archer": true,
+          "crossbowman": true,
+          "arbalester": true,
+          "skirmisher": true,
+          "eliteSkirmisher": true,
+          "cavalryArcher": false,
+          "heavyCavalryArcher": false,
+          "handCannoneer": false
+        },
+        "techs": {
+          "thumbRing": false,
+          "parthianTactics": false
+        }
+      },
+      "barracks": {
+        "units": {
+          "militia": true,
+          "manAtArms": true,
+          "longSwordsman": true,
+          "twoHandedSwordsman": true,
+          "champion": true,
+          "spearman": true,
+          "pikeman": true,
+          "halberdier": false,
+          "eagleScout": true,
+          "eagleWarrior": true,
+          "eliteEagleWarrior": true
+        },
+        "techs": {
+          "supplies": true,
+          "squires": true,
+          "arson": true
+        }
+      },
+      "blacksmith": {
+        "techs": {
+          "forging": true,
+          "ironCasting": true,
+          "blastFurnace": true,
+          "scaleMailArmor": true,
+          "chainMailArmor": true,
+          "plateMailArmor": true,
+          "fletching": true,
+          "bodkinArrow": true,
+          "bracer": true,
+          "paddedArcherArmor": true,
+          "leatherArcherArmor": true,
+          "ringArcherArmor": false,
+          "scaleBardingArmor": false,
+          "chainBardingArmor": false,
+          "plateBardingArmor": false
+        }
+      },
+      "castle": {
+        "techs": {
+          "hoardings": false,
+          "conscription": true,
+          "sappers": true
+        }
+      },
+      "dock": {
+        "units": {
+          "fishingShip": true,
+          "transportShip": true,
+          "tradeCog": true,
+          "galley": true,
+          "warGalley": true,
+          "galleon": false,
+          "fireGalley": true,
+          "fireShip": true,
+          "fastFireShip": true,
+          "demolitionRaft": true,
+          "demolitionShip": true,
+          "heavyDemolitionShip": false,
+          "cannonGalleon": false,
+          "eliteCannonGalleon": false
+        },
+        "techs": {
+          "gillnets": true,
+          "careening": true,
+          "dryDock": true,
+          "shipwright": true
+        }
+      },
+      "lumberCamp": {
+        "techs": {
+          "doubleBitAxe": true,
+          "bowSaw": true,
+          "twoManSaw": false
+        }
+      },
+      "market": {
+        "techs": {
+          "caravan": true,
+          "coinage": true,
+          "banking": true,
+          "guilds": false
+        }
+      },
+      "mill": {
+        "techs": {
+          "horseCollar": true,
+          "heavyPlow": true,
+          "cropRotation": true
+        }
+      },
+      "miningCamp": {
+        "techs": {
+          "goldMining": true,
+          "goldShaftMining": true,
+          "stoneMining": true,
+          "stoneShaftMining": true
+        }
+      },
+      "monastery": {
+        "techs": {
+          "redemption": true,
+          "atonement": true,
+          "herbalMedicine": true,
+          "heresy": true,
+          "sanctity": true,
+          "fervor": true,
+          "faith": true,
+          "illumination": true,
+          "blockPrinting": true,
+          "theocracy": true
+        }
+      },
+      "stable": {
+        "units": {
+          "scoutCavalry": false,
+          "lightCavalry": false,
+          "hussar": false,
+          "knight": false,
+          "cavalier": false,
+          "paladin": false,
+          "camelRider": false,
+          "heavyCamelRider": false,
+          "battleElephant": false,
+          "eliteBattleElephant": false,
+          "steppeLancer": false,
+          "eliteSteppeLancer": false
+        },
+        "techs": {
+          "bloodlines": false,
+          "husbandry": false
+        }
+      },
+      "siegeWorkshop": {
+        "units": {
+          "batteringRam": true,
+          "cappedRam": true,
+          "siegeRam": true,
+          "mangonel": true,
+          "onager": true,
+          "siegeOnager": true,
+          "scorpion": true,
+          "heavyScorpion": false,
+          "bombardCannon": false,
+          "siegeTower": true
+        }
+      },
+      "townCenter": {
+        "techs": {
+          "townWatch": true,
+          "townPatrol": true,
+          "wheelbarrow": true,
+          "handCart": true,
+          "loom": true,
+          "feudalAge": true,
+          "castleAge": true,
+          "imperialAge": true
+        }
+      },
+      "university": {
+        "techs": {
+          "treadmillCrane": true,
+          "masonry": false,
+          "architecture": false,
+          "ballistics": true,
+          "heatedShot": true,
+          "murderHoles": true,
+          "arrowslits": true,
+          "chemistry": true,
+          "siegeEngineers": true
+        }
+      }
+    }
+  }
+]

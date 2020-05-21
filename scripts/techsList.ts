@@ -3,6 +3,8 @@ import * as got from "got";
 import * as cheerio from "cheerio";
 import * as _ from "lodash";
 
+import { baseTechTree, nameForWiki } from "../sources/wiki/constants/techs";
+
 interface Cost {
   food: number;
   wood: number;
@@ -112,6 +114,7 @@ async function generateTechConstants() {
     output[_.camelCase(tech.building)].techs[_.camelCase(tech.name)] = true;
   });
 
+  // Right now I manually update the techs with missing ones
   console.log(output);
 }
 
@@ -120,6 +123,5 @@ async function main() {
 }
 
 main()
-  .then(console.log)
   .catch(console.error)
   .then(() => console.log("done"));
