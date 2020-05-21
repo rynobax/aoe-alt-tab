@@ -44,7 +44,7 @@ export async function scrapeWiki(): Promise<WikiResult> {
   let techImages: TechImage[] = [];
   let i = 0;
   const civs = await Promise.all(
-    [allCivs[0]].map(async (civ) => {
+    allCivs.map(async (civ) => {
       const pages = await getWikiPages(civ);
       console.log(`done fetching ${civ} - ${++i} of ${allCivs.length}`);
       const characteristics = parseMainPage(pages.main);
