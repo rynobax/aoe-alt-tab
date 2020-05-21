@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import * as React from "react";
 import { graphql } from "gatsby";
 import styled, { ThemeProvider } from "styled-components";
 import random from "lodash/random";
 import "./reset.css";
+
+const { useState, useMemo, useEffect, useLayoutEffect } = React;
+// Using experimental build :)
+const useTransition = (React as any).unstable_useTransition;
 
 import SEO from "../components/SEO";
 
@@ -201,28 +205,36 @@ export const query = graphql`
   }
 `;
 
-export interface TechImage {
-  relativePath: string;
-  publicURL: string;
-}
-
 interface IndexPageProps {
   data: {
     allCiv: { nodes: Civ[] };
-    allFile: { nodes: TechImage[] };
+    allFile: {
+      nodes: Array<{
+        relativePath: string;
+        publicURL: string;
+      }>;
+    };
   };
 }
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const allCivs = data.allCiv.nodes;
-  const techImages = data.allFile.nodes;
+  const images = data.allFile.nodes;
 
+  const [startTransition, pending] = useTransition({ timeoutMs: 500 });
   const [civName, setCivName] = useState(
     allCivs[random(0, allCivs.length - 1)].name
   );
 
+  const imageMap = useMemo<Record<string, string>>(() => {
+    return images.reduce(
+      (p, c) => ({ ...p, [c.relativePath]: c.publicURL }),
+      {}
+    );
+  }, [images.length]);
+
   const civ = allCivs.find((e) => e.name === civName);
-  if (!civ) throw Error(`Can't find civ ${civName}`);
+  if (!civ) throw Error(`Unknown civ ${civName}`);
 
   return (
     <ThemeProvider theme={theme}>
@@ -231,10 +243,10 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
         <Header
           civs={allCivs.map((c) => c.name)}
           selectedCiv={civName}
-          onCivChange={(e) => setCivName(e)}
+          onCivChange={(e) => startTransition(() => setCivName(e))}
         />
         <Main>
-          <CivOverview civ={civ} techImages={techImages} />
+          <CivOverview civ={civ} images={imageMap} />
         </Main>
       </Container>
     </ThemeProvider>
@@ -248,12 +260,12 @@ const Container = styled.div(
   flex: 1;
   display: flex;
   flex-direction: column;
+  background: ${p.theme.tan};
 `
 );
 
 const Main = styled.main(
   (p) => `
-  background: ${p.theme.tan};
   flex: 1;
   display: flex;
   padding: 8px;

@@ -58,6 +58,7 @@ const ComboSelect = styled.select`
   width: 200px;
   padding: 8px;
   font-size: 16px;
+  border-radius: 3px;
 `;
 
 const ComboOption = styled.option``;

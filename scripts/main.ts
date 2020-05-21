@@ -8,7 +8,7 @@ const pipeline = promisify(stream.pipeline);
 import { scrapeWiki } from "./scrapeWiki";
 
 async function main() {
-  const { civs, techImages } = await scrapeWiki();
+  const { civs, civImages, techImages } = await scrapeWiki();
 
   // Write out civ data
   fs.writeFileSync(
@@ -16,21 +16,27 @@ async function main() {
     JSON.stringify(civs, null, 2)
   );
 
-
+  // Write out images
   if (!fs.existsSync("src/images/techs")) {
     fs.mkdirSync("src/images/techs");
   }
+  if (!fs.existsSync("src/images/civIcons")) {
+    fs.mkdirSync("src/images/civIcons");
+  }
 
-  // Write out images
   let i = 0;
   await Promise.all(
     techImages.map(async ({ name, url }) => {
       const outPath = `src/images/techs/${name}.png`;
-      await pipeline(
-        got.stream(url),
-        fs.createWriteStream(outPath)
-      );
-      console.log(`downloaded image ${++i} of ${techImages.length}`);
+      await pipeline(got.stream(url), fs.createWriteStream(outPath));
+      console.log(`downloaded tech image ${++i} of ${techImages.length}`);
+    })
+  );
+  await Promise.all(
+    civImages.map(async ({ name, url }) => {
+      const outPath = `src/images/civIcons/${name}.png`;
+      await pipeline(got.stream(url), fs.createWriteStream(outPath));
+      console.log(`downloaded civ image ${++i} of ${techImages.length}`);
     })
   );
 }

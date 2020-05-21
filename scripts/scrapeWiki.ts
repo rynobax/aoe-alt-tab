@@ -6,24 +6,26 @@ import { nameForWiki } from "./util";
 import { TechTree, baseTechTree } from "../sources/wiki/data/techs";
 import { Civ, Characteristics } from "../sources/wiki/wiki";
 
-interface TechImage {
+interface ImageInfo {
   name: string;
   url: string;
 }
 
 interface WikiResult {
   civs: Civ[];
-  techImages: TechImage[];
+  civImages: ImageInfo[];
+  techImages: ImageInfo[];
 }
 
 export async function scrapeWiki(): Promise<WikiResult> {
-  let techImages: TechImage[] = [];
+  let techImages: ImageInfo[] = [];
+  const civImages: ImageInfo[] = [];
   let i = 0;
   const civs = await Promise.all(
     allCivs.map(async (civ) => {
       const pages = await getWikiPages(civ);
       console.log(`done fetching ${civ} - ${++i} of ${allCivs.length}`);
-      const characteristics = parseMainPage(pages.main);
+      const characteristics = parseMainPage(pages.main, civ, civImages);
       const techTree = parseTechPage(pages.tech, techImages);
       const civInfo: Civ = { name: civ, characteristics, techTree };
       return civInfo;
@@ -32,7 +34,7 @@ export async function scrapeWiki(): Promise<WikiResult> {
 
   techImages = _.uniqBy(techImages, (e) => e.name);
 
-  return { civs, techImages };
+  return { civs, civImages, techImages };
 }
 
 async function getWikiPages(
@@ -76,8 +78,16 @@ const cleanWikiText = (str: string) => {
   return str.trim().replace(/\[\d*\]/g, "");
 };
 
-function parseMainPage(page: string): Characteristics {
+function parseMainPage(
+  page: string,
+  civName: string,
+  civImages: ImageInfo[]
+): Characteristics {
   const $ = cheerio.load(page);
+
+  const icon = $(`img[data-image-key="CivIcon-${civName}.png"]`);
+  if(icon.length === 0) throw Error(`Could not find icon for ${civName}`);
+  civImages.push({ name: civName, url: icon.attr("src") });
 
   const uniqueUnits = getUniqueUnitsSection($)
     .parent()
@@ -129,7 +139,7 @@ function parseMainPage(page: string): Characteristics {
 function checkIfMissing(
   $: CheerioStatic,
   thing: string,
-  techImages: TechImage[]
+  techImages: ImageInfo[]
 ) {
   const prefix = nameForWiki(thing);
   const availableName = `${prefix}available`;
@@ -152,7 +162,7 @@ function checkIfMissing(
   return missingThing.length === 1;
 }
 
-function parseTechPage(page: string, techImages: TechImage[]): TechTree {
+function parseTechPage(page: string, techImages: ImageInfo[]): TechTree {
   const $ = cheerio.load(page);
   const techTree = baseTechTree();
   Object.entries(techTree).forEach(([building, tree]) => {

@@ -5,7 +5,7 @@ import kebabCase from "lodash/kebabCase";
 
 import { TechTree } from "../../sources/wiki/data/techs";
 import { nameForWiki } from "../../scripts/util";
-import { TechImage } from "../pages";
+import SuspenseImage from "./SuspenseImage";
 
 type Building = keyof TechTree;
 type TechKeys<B extends Building> = keyof TechTree[B];
@@ -134,13 +134,13 @@ const alwaysShow = [
 interface BuildingTechsProps {
   building: Building;
   tree: TechTree;
-  techImages: TechImage[];
+  images: Record<string, string>;
 }
 
 const BuildingTechs: React.FC<BuildingTechsProps> = ({
   building,
   tree,
-  techImages,
+  images,
 }) => {
   const grid = getBuildingGrid(building);
 
@@ -162,17 +162,14 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
         )
           return null;
         return (
-          <Row key={row.join('-')}>
+          <Row key={row.join("-")}>
             {row.map((k) => {
               const haveIt = tree[building][k];
               const imageName = `${nameForWiki(k)}${
                 haveIt ? "available" : "unavailable"
               }.png`;
               const path = `techs/${imageName}`;
-              const image = techImages.find((e) => e.relativePath === path);
-              let src = "";
-              if (!image) console.error(`Could not find image for tech ${k}`);
-              else src = image.publicURL;
+              const src = images[path];
               return <Image key={k} src={src} />;
             })}
           </Row>
@@ -188,7 +185,7 @@ const Row = styled.div`
   margin-bottom: 8px;
 `;
 
-const Image = styled.img`
+const Image = styled(SuspenseImage)`
   /* Original image is 80x84 */
   height: 63px;
   width: 60px;

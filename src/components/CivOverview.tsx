@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { Civ } from "../../sources/wiki/wiki";
 
 import BuildingTechs from "./BuildingTechs";
-import { TechImage } from "../pages";
+import SuspenseImage from "./SuspenseImage";
 
 interface CivOverviewProps {
   civ: Civ;
-  techImages: TechImage[];
+  images: Record<string, string>;
 }
 
 const CivOverview: React.FC<CivOverviewProps> = ({
@@ -17,12 +17,17 @@ const CivOverview: React.FC<CivOverviewProps> = ({
     name,
     techTree,
   },
-  techImages,
+  images,
 }) => {
+  const path = `civIcons/${name}.png`;
+  const logoSrc = images[path];
   return (
     <Container>
       <Column>
-        <Logo />
+        <TitleRow>
+          <Logo src={logoSrc} />
+          <CivName>{name}</CivName>
+        </TitleRow>
         <CivInfoSection>
           <Heading>Civ bonuses</Heading>
           <List>
@@ -43,7 +48,7 @@ const CivOverview: React.FC<CivOverviewProps> = ({
             {uniqueUnits.map((unit, i) => {
               return (
                 <ListItem key={i}>
-                  {unit.name}: {unit.description}
+                  <Bold>{unit.name}:</Bold> {unit.description}
                 </ListItem>
               );
             })}
@@ -53,12 +58,12 @@ const CivOverview: React.FC<CivOverviewProps> = ({
           <Heading>Unique techs</Heading>
           <List>
             <ListItem>
-              Castle Age | {uniqueTechs.castleAge.name}:{" "}
-              {uniqueTechs.castleAge.description}
+              <Bold>{uniqueTechs.castleAge.name}:</Bold>{" "}
+              {uniqueTechs.castleAge.description} (Castle Age)
             </ListItem>
             <ListItem>
-              Imperial Age | {uniqueTechs.imperialAge.name}:{" "}
-              {uniqueTechs.imperialAge.description}
+              <Bold>{uniqueTechs.imperialAge.name}:</Bold>{" "}
+              {uniqueTechs.imperialAge.description} (Imperial Age)
             </ListItem>
           </List>
         </CivInfoSection>
@@ -66,68 +71,24 @@ const CivOverview: React.FC<CivOverviewProps> = ({
       <Column>
         <BuildingTechs
           building="archeryRange"
-          techImages={techImages}
+          images={images}
           tree={techTree}
         />
-        <BuildingTechs
-          building="barracks"
-          techImages={techImages}
-          tree={techTree}
-        />
-        <BuildingTechs
-          building="stable"
-          techImages={techImages}
-          tree={techTree}
-        />
+        <BuildingTechs building="barracks" images={images} tree={techTree} />
+        <BuildingTechs building="stable" images={images} tree={techTree} />
       </Column>
       <Column>
-        <BuildingTechs
-          building="blacksmith"
-          techImages={techImages}
-          tree={techTree}
-        />
-        <BuildingTechs
-          building="lumberCamp"
-          techImages={techImages}
-          tree={techTree}
-        />
-        <BuildingTechs
-          building="mill"
-          techImages={techImages}
-          tree={techTree}
-        />
-        <BuildingTechs
-          building="miningCamp"
-          techImages={techImages}
-          tree={techTree}
-        />
-        <BuildingTechs
-          building="market"
-          techImages={techImages}
-          tree={techTree}
-        />
+        <BuildingTechs building="blacksmith" images={images} tree={techTree} />
+        <BuildingTechs building="lumberCamp" images={images} tree={techTree} />
+        <BuildingTechs building="mill" images={images} tree={techTree} />
+        <BuildingTechs building="miningCamp" images={images} tree={techTree} />
+        <BuildingTechs building="market" images={images} tree={techTree} />
       </Column>
       <Column>
-        <BuildingTechs
-          building="dock"
-          techImages={techImages}
-          tree={techTree}
-        />
-        <BuildingTechs
-          building="monastery"
-          techImages={techImages}
-          tree={techTree}
-        />
-        <BuildingTechs
-          building="university"
-          techImages={techImages}
-          tree={techTree}
-        />
-        <BuildingTechs
-          building="castle"
-          techImages={techImages}
-          tree={techTree}
-        />
+        <BuildingTechs building="dock" images={images} tree={techTree} />
+        <BuildingTechs building="monastery" images={images} tree={techTree} />
+        <BuildingTechs building="university" images={images} tree={techTree} />
+        <BuildingTechs building="castle" images={images} tree={techTree} />
       </Column>
     </Container>
   );
@@ -143,14 +104,26 @@ const Column = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
+  margin-left: 8px;
+  margin-right: 8px;
 `;
 
-const Todo = styled.div`
-  flex: 1;
+const TitleRow = styled.div`
+  flex: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const CivName = styled.h2`
+  margin-left: 16px;
+  font-size: 32px;
+  font-weight: 700;
 `;
 
 const CivInfoSection = styled.div`
-  flex: 1;
+  flex: 0;
+  margin-top: 16px;
 `;
 
 const Heading = styled.h2`
@@ -159,16 +132,20 @@ const Heading = styled.h2`
   color: #000;
 `;
 
-const Logo = styled.div`
-  background: grey;
-  height: 64px;
-  width: 64px;
+const Logo = styled(SuspenseImage)`
+  /* src is 104x104 */
+  height: 104px;
+  width: 104px;
 `;
 
 const List = styled.ul``;
 
 const ListItem = styled.li`
-  margin-top: 8px;
+  margin-top: 12px;
+`;
+
+const Bold = styled.span`
+  font-weight: 700;
 `;
 
 export default CivOverview;
