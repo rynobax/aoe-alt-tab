@@ -10,6 +10,7 @@ import SEO from "../components/SEO";
 import theme from "../theme";
 
 import { Civ } from "../../sources/wiki/wiki";
+import CivOverview from "../components/CivOverview";
 
 export const query = graphql`
   query Civs {
@@ -18,7 +19,7 @@ export const query = graphql`
         name
         characteristics {
           civBonuses
-          teamBonuses
+          teamBonus
           uniqueUnits {
             name
             description
@@ -36,193 +37,157 @@ export const query = graphql`
         }
         techTree {
           archeryRange {
-            units {
-              archer
-              crossbowman
-              arbalester
-              skirmisher
-              eliteSkirmisher
-              cavalryArcher
-              heavyCavalryArcher
-              handCannoneer
-            }
-            techs {
-              thumbRing
-              parthianTactics
-            }
+            archer
+            crossbowman
+            arbalester
+            skirmisher
+            eliteSkirmisher
+            cavalryArcher
+            heavyCavalryArcher
+            handCannoneer
+            thumbRing
+            parthianTactics
           }
           barracks {
-            units {
-              militia
-              manAtArms
-              longSwordsman
-              twoHandedSwordsman
-              champion
-              spearman
-              pikeman
-              halberdier
-              eagleScout
-              eagleWarrior
-              eliteEagleWarrior
-            }
-            techs {
-              supplies
-              squires
-              arson
-            }
+            militia
+            manAtArms
+            longSwordsman
+            twoHandedSwordsman
+            champion
+            spearman
+            pikeman
+            halberdier
+            eagleScout
+            eagleWarrior
+            eliteEagleWarrior
+            supplies
+            squires
+            arson
           }
           blacksmith {
-            techs {
-              forging
-              ironCasting
-              blastFurnace
-              scaleMailArmor
-              chainMailArmor
-              plateMailArmor
-              fletching
-              bodkinArrow
-              bracer
-              paddedArcherArmor
-              leatherArcherArmor
-              ringArcherArmor
-              scaleBardingArmor
-              chainBardingArmor
-              plateBardingArmor
-            }
+            forging
+            ironCasting
+            blastFurnace
+            scaleMailArmor
+            chainMailArmor
+            plateMailArmor
+            fletching
+            bodkinArrow
+            bracer
+            paddedArcherArmor
+            leatherArcherArmor
+            ringArcherArmor
+            scaleBardingArmor
+            chainBardingArmor
+            plateBardingArmor
           }
           castle {
-            techs {
-              hoardings
-              conscription
-              sappers
-            }
+            hoardings
+            conscription
+            sappers
           }
           dock {
-            units {
-              fishingShip
-              transportShip
-              tradeCog
-              galley
-              warGalley
-              galleon
-              fireGalley
-              fireShip
-              fastFireShip
-              demolitionRaft
-              demolitionShip
-              heavyDemolitionShip
-              cannonGalleon
-              eliteCannonGalleon
-            }
-            techs {
-              gillnets
-              careening
-              dryDock
-              shipwright
-            }
+            fishingShip
+            transportShip
+            tradeCog
+            galley
+            warGalley
+            galleon
+            fireGalley
+            fireShip
+            fastFireShip
+            demolitionRaft
+            demolitionShip
+            heavyDemolitionShip
+            cannonGalleon
+            eliteCannonGalleon
+            gillnets
+            careening
+            dryDock
+            shipwright
           }
           lumberCamp {
-            techs {
-              doubleBitAxe
-              bowSaw
-              twoManSaw
-            }
+            doubleBitAxe
+            bowSaw
+            twoManSaw
           }
           market {
-            techs {
-              caravan
-              coinage
-              banking
-              guilds
-            }
+            caravan
+            coinage
+            banking
+            guilds
           }
           mill {
-            techs {
-              horseCollar
-              heavyPlow
-              cropRotation
-            }
+            horseCollar
+            heavyPlow
+            cropRotation
           }
           miningCamp {
-            techs {
-              goldMining
-              goldShaftMining
-              stoneMining
-              stoneShaftMining
-            }
+            goldMining
+            goldShaftMining
+            stoneMining
+            stoneShaftMining
           }
           monastery {
-            techs {
-              redemption
-              atonement
-              herbalMedicine
-              heresy
-              sanctity
-              fervor
-              faith
-              illumination
-              blockPrinting
-              theocracy
-            }
+            redemption
+            atonement
+            herbalMedicine
+            heresy
+            sanctity
+            fervor
+            faith
+            illumination
+            blockPrinting
+            theocracy
           }
           stable {
-            units {
-              scoutCavalry
-              lightCavalry
-              hussar
-              knight
-              cavalier
-              paladin
-              camelRider
-              heavyCamelRider
-              battleElephant
-              eliteBattleElephant
-              steppeLancer
-              eliteSteppeLancer
-            }
-            techs {
-              bloodlines
-              husbandry
-            }
+            scoutCavalry
+            lightCavalry
+            hussar
+            knight
+            cavalier
+            paladin
+            camelRider
+            heavyCamelRider
+            battleElephant
+            eliteBattleElephant
+            steppeLancer
+            eliteSteppeLancer
+            bloodlines
+            husbandry
           }
           siegeWorkshop {
-            units {
-              batteringRam
-              cappedRam
-              siegeRam
-              mangonel
-              onager
-              siegeOnager
-              scorpion
-              heavyScorpion
-              bombardCannon
-              siegeTower
-            }
+            batteringRam
+            cappedRam
+            siegeRam
+            mangonel
+            onager
+            siegeOnager
+            scorpion
+            heavyScorpion
+            bombardCannon
+            siegeTower
           }
           townCenter {
-            techs {
-              townWatch
-              townPatrol
-              wheelbarrow
-              handCart
-              loom
-              feudalAge
-              castleAge
-              imperialAge
-            }
+            townWatch
+            townPatrol
+            wheelbarrow
+            handCart
+            loom
+            feudalAge
+            castleAge
+            imperialAge
           }
           university {
-            techs {
-              treadmillCrane
-              masonry
-              architecture
-              ballistics
-              heatedShot
-              murderHoles
-              arrowslits
-              chemistry
-              siegeEngineers
-            }
+            treadmillCrane
+            masonry
+            architecture
+            ballistics
+            heatedShot
+            murderHoles
+            arrowslits
+            chemistry
+            siegeEngineers
           }
         }
       }
@@ -247,10 +212,11 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
     <ThemeProvider theme={theme}>
       <Layout
         civs={allCivs.map((c) => c.name)}
+        selectedCiv={civName}
         onCivChange={(e) => setCivName(e)}
       >
         <SEO title="Home" />
-        {JSON.stringify(civ)}
+        <CivOverview civ={civ} />
       </Layout>
     </ThemeProvider>
   );
