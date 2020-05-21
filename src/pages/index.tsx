@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Link, graphql } from "gatsby";
-import { ThemeProvider } from "styled-components";
+import { graphql } from "gatsby";
+import styled, { ThemeProvider } from "styled-components";
 import random from "lodash/random";
+import "./reset.css";
 
-import Layout from "../components/Layout";
-import Image from "../components/Image";
 import SEO from "../components/SEO";
 
 import theme from "../theme";
 
 import { Civ } from "../../sources/wiki/wiki";
 import CivOverview from "../components/CivOverview";
+import Header from "../components/Header";
 
 export const query = graphql`
   query {
@@ -218,7 +218,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const techImages = data.allFile.nodes;
 
   const [civName, setCivName] = useState(
-    allCivs[random(0, allCivs.length - 1)].name
+    "Cumans"
+    // allCivs[random(0, allCivs.length - 1)].name
   );
 
   const civ = allCivs.find((e) => e.name === civName);
@@ -226,16 +227,39 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Layout
-        civs={allCivs.map((c) => c.name)}
-        selectedCiv={civName}
-        onCivChange={(e) => setCivName(e)}
-      >
-        <SEO title="Home" />
-        <CivOverview civ={civ} techImages={techImages} />
-      </Layout>
+      <SEO title="Home" />
+      <Container>
+        <Header
+          civs={allCivs.map((c) => c.name)}
+          selectedCiv={civName}
+          onCivChange={(e) => setCivName(e)}
+        />
+        <Main>
+          <CivOverview civ={civ} techImages={techImages} />
+        </Main>
+      </Container>
     </ThemeProvider>
   );
 };
+
+const Container = styled.div(
+  (p) => `
+  background: ${p.theme.tan};
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`
+);
+
+const Main = styled.main(
+  (p) => `
+  background: ${p.theme.tan};
+  flex: 1;
+  display: flex;
+  padding: 8px;
+  overflow: auto;
+`
+);
 
 export default IndexPage;

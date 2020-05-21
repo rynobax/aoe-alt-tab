@@ -172,11 +172,7 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
               let src = "";
               if (!image) console.error(`Could not find image for tech ${k}`);
               else src = image.publicURL;
-              return (
-                <Cell key={k}>
-                  <Image src={src} />
-                </Cell>
-              );
+              return <Image key={k} src={src} />;
             })}
           </Row>
         );
@@ -185,20 +181,22 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
   );
 };
 
-const Cell = styled.div``;
-
 const Row = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 8px;
 `;
 
 const Image = styled.img`
-  height: 64px;
-  width: 64px;
+  /* Original image is 80x84 */
+  height: 63px;
+  width: 60px;
+
+  margin-right: 16px;
 `;
 
 const Header = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   /* font-weight: 700; */
   color: #333;
 `;
