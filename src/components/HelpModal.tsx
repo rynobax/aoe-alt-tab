@@ -5,6 +5,8 @@ import "@reach/dialog/styles.css";
 
 const GITHUB_URL = "https://github.com/rynobax/aoe-alt-tab";
 const CONTACT_EMAIL = "hello@aoealttab.com";
+const WIKI_URL =
+  "https://ageofempires.fandom.com/wiki/Age_of_Empires_Series_Wiki";
 
 interface HelpModalProps {
   isOpen: boolean;
@@ -17,6 +19,14 @@ const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onDismiss }) => {
       <CustomDialogContent>
         <Section>
           Tip: You can press '/' to focus on the dropdown, and type to change it
+        </Section>
+        <VerticalPadding />
+        <Section>
+          The info for this site comes from the{" "}
+          <a href={WIKI_URL} target="_blank">
+            Age of Empires Series Wiki
+          </a>
+          .
         </Section>
         <VerticalPadding />
         <Section>
