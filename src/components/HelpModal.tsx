@@ -16,7 +16,7 @@ interface HelpModalProps {
 const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onDismiss }) => {
   return (
     <CustomDialogOverlay isOpen={isOpen} onDismiss={onDismiss}>
-      <CustomDialogContent>
+      <CustomDialogContent aria-label="About">
         <Section>
           Tip: You can press '/' to focus on the dropdown, and type to change it
         </Section>
