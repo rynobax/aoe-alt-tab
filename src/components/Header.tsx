@@ -1,5 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import HelpModal from "./HelpModal";
 
 interface HeaderProps {
   civs: string[];
@@ -8,6 +9,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
+  const [showDialog, setShowDialog] = React.useState(false);
   const [selectRef, setSelectRef] = useState<HTMLSelectElement | null>(null);
   useEffect(() => {
     if (!selectRef) return;
@@ -19,6 +21,15 @@ const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
     document.addEventListener("keypress", onPress);
     return () => document.removeEventListener("keypress", onPress);
   }, [selectRef]);
+
+  function onHelpPress() {
+    setShowDialog(true);
+  }
+
+  function onHelpClose() {
+    setShowDialog(false);
+  }
+
   return (
     <CustomHeader>
       <HeaderText>AoE Alt Tab</HeaderText>
@@ -39,6 +50,10 @@ const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
           </ComboSelect>
         </Combo>
       </ComboContainer>
+      <InfoContainer>
+        <InfoButton onClick={onHelpPress}>?</InfoButton>
+        <HelpModal isOpen={showDialog} onDismiss={onHelpClose} />
+      </InfoContainer>
     </CustomHeader>
   );
 };
@@ -49,6 +64,7 @@ const CustomHeader = styled.header(
   padding: 8px 24px;
   display: flex;
   flex-direction: row;
+  align-items: center;
 `
 );
 
@@ -63,7 +79,7 @@ const Combo = styled.div``;
 
 const ComboLabel = styled.h2`
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   margin-right: 12px;
 `;
 
@@ -81,6 +97,26 @@ const HeaderText = styled.h1`
   font-size: 32px;
   font-family: "Titillium Web";
   font-weight: 700;
+`;
+
+const InfoContainer = styled.div``;
+
+const InfoButton = styled.button`
+  color: white;
+  font-size: 24px;
+  font-family: "Titillium Web";
+  font-weight: 700;
+  background: none;
+  border: 2px solid white;
+  border-radius: 4444px;
+  padding: 4px;
+  width: 40px;
+  height: 40px;
+
+  :hover {
+    background: hsla(0, 100%, 100%, 0.15);
+    cursor: pointer;
+  }
 `;
 
 export default Header;
