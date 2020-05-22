@@ -236,7 +236,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <SEO title="Home" />
+      <SEO title={`AoE Alt Tab - ${civName}`} />
       <Container>
         <Header
           civs={allCivs.map((c) => c.name)}
