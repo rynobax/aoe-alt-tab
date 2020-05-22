@@ -187,7 +187,6 @@ const Row = styled.div`
 
 const Image = styled(SuspenseImage)`
   /* Original image is 80x84 */
-  height: 63px;
   width: 60px;
 
   margin-right: 16px;

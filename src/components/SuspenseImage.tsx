@@ -61,7 +61,7 @@ const SuspenseImage: React.FC<ImageProps> = (props) => {
 
 const ActualImage: React.FC<ImageProps> = ({ src, ...props }) => {
   ImageResource(src).read();
-  return <img src={src} style={{}} {...props} />;
+  return <img src={src} {...props} />;
 };
 
 const Fallback = styled.div`
