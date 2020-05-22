@@ -1,5 +1,3 @@
-import * as got from "got";
-import * as cheerio from "cheerio";
 import * as _ from "lodash";
 
 import { TechTree } from "./data/techs";

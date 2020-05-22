@@ -221,10 +221,8 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const allCivs = data.allCiv.nodes;
   const images = data.allFile.nodes;
 
-  const [startTransition, pending] = useTransition({ timeoutMs: 750 });
-  const [civName, setCivName] = useState(
-    allCivs[random(0, allCivs.length - 1)].name
-  );
+  const [startTransition] = useTransition({ timeoutMs: 750 });
+  const [civName, setCivName] = useState("Aztecs");
 
   const imageMap = useMemo<Record<string, string>>(() => {
     return images.reduce(
@@ -273,4 +271,12 @@ const Main = styled.main(
 `
 );
 
-export default IndexPage;
+const StrictIndexPage: React.FC<IndexPageProps> = (props) => {
+  return (
+    <React.StrictMode>
+      <IndexPage {...props} />
+    </React.StrictMode>
+  );
+};
+
+export default StrictIndexPage;

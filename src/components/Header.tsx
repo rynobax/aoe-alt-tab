@@ -8,6 +8,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
+  console.log('header', selectedCiv)
   return (
     <CustomHeader>
       <HeaderText>AoE Alt Tab</HeaderText>

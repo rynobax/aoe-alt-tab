@@ -3,8 +3,6 @@ import * as got from "got";
 import * as cheerio from "cheerio";
 import * as _ from "lodash";
 
-import { baseTechTree, nameForWiki } from "../sources/wiki/constants/techs";
-
 interface Cost {
   food: number;
   wood: number;
@@ -122,6 +120,6 @@ async function main() {
   generateTechConstants();
 }
 
-main()
-  .catch(console.error)
-  .then(() => console.log("done"));
+// main()
+//   .catch(console.error)
+//   .then(() => console.log("done"));
