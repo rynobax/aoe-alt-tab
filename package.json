@@ -1,7 +1,7 @@
 {
   "name": "aoe-alt-tab",
   "private": true,
-  "description": "AOE2 reference",
+  "description": "Age of Empires 2 alt tab reference",
   "version": "0.1.0",
   "scripts": {
     "build": "gatsby build",
@@ -46,17 +46,7 @@
     "prettier": "^2.0.5",
     "typescript": "^3.9.3"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
