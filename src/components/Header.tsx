@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 interface HeaderProps {
@@ -8,6 +8,17 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
+  const [selectRef, setSelectRef] = useState<HTMLSelectElement | null>(null);
+  useEffect(() => {
+    if (!selectRef) return;
+    const onPress = (ev: KeyboardEvent) => {
+      if (ev.key === "/") {
+        selectRef.focus();
+      }
+    };
+    document.addEventListener("keypress", onPress);
+    return () => document.removeEventListener("keypress", onPress);
+  }, [selectRef]);
   return (
     <CustomHeader>
       <HeaderText>AoE Alt Tab</HeaderText>
@@ -17,6 +28,8 @@ const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
           <ComboSelect
             value={selectedCiv}
             onChange={(e) => onCivChange(e.target.value)}
+            ref={(ref) => setSelectRef(ref)}
+            autoFocus
           >
             {civs.map((civ) => (
               <ComboOption key={civ} value={civ}>
