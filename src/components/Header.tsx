@@ -32,28 +32,32 @@ const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
 
   return (
     <CustomHeader>
-      <HeaderText>AoE Alt Tab</HeaderText>
-      <ComboContainer>
-        <ComboLabel>Select a Civ:</ComboLabel>
-        <Combo>
-          <ComboSelect
-            value={selectedCiv}
-            onChange={(e) => onCivChange(e.target.value)}
-            ref={(ref) => setSelectRef(ref)}
-            autoFocus
-          >
-            {civs.map((civ) => (
-              <ComboOption key={civ} value={civ}>
-                {civ}
-              </ComboOption>
-            ))}
-          </ComboSelect>
-        </Combo>
-      </ComboContainer>
-      <InfoContainer>
+      <TitleSection>
+        <HeaderText>AoE Alt Tab</HeaderText>
+      </TitleSection>
+      <SelectSection>
+        <ComboContainer>
+          <ComboLabel>Select a Civ:</ComboLabel>
+          <Combo>
+            <ComboSelect
+              value={selectedCiv}
+              onChange={(e) => onCivChange(e.target.value)}
+              ref={(ref) => setSelectRef(ref)}
+              autoFocus
+            >
+              {civs.map((civ) => (
+                <ComboOption key={civ} value={civ}>
+                  {civ}
+                </ComboOption>
+              ))}
+            </ComboSelect>
+          </Combo>
+        </ComboContainer>
+      </SelectSection>
+      <InfoSection>
         <InfoButton onClick={onHelpPress}>?</InfoButton>
         <HelpModal isOpen={showDialog} onDismiss={onHelpClose} />
-      </InfoContainer>
+      </InfoSection>
     </CustomHeader>
   );
 };
@@ -65,6 +69,7 @@ const CustomHeader = styled.header(
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 `
 );
 
@@ -99,8 +104,6 @@ const HeaderText = styled.h1`
   font-weight: 700;
 `;
 
-const InfoContainer = styled.div``;
-
 const InfoButton = styled.button`
   color: white;
   font-size: 24px;
@@ -117,6 +120,22 @@ const InfoButton = styled.button`
     background: hsla(0, 100%, 100%, 0.15);
     cursor: pointer;
   }
+`;
+
+const TitleSection = styled.div`
+  flex: 1;
+`;
+
+const SelectSection = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+`;
+
+const InfoSection = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 export default Header;

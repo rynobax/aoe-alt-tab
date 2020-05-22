@@ -56,8 +56,8 @@ const mill: TechKeys<"mill">[][] = [
 ];
 
 const miningCamp: TechKeys<"miningCamp">[][] = [
-  ["goldMining", "goldShaftMining"],
-  ["stoneMining", "stoneShaftMining"],
+  ["goldMining", "goldShaftMining", "stoneMining", "stoneShaftMining"],
+  [],
 ];
 
 const monastery: TechKeys<"monastery">[][] = [
@@ -76,17 +76,21 @@ const siegeWorkshop: TechKeys<"siegeWorkshop">[][] = [
 const stable: TechKeys<"stable">[][] = [
   ["scoutCavalry", "lightCavalry", "hussar"],
   ["knight", "cavalier", "paladin"],
-  ["camelRider", "heavyCamelRider"],
-  ["battleElephant", "eliteBattleElephant"],
-  ["steppeLancer", "eliteSteppeLancer"],
+  [
+    "camelRider",
+    "heavyCamelRider",
+    "battleElephant",
+    "eliteBattleElephant",
+    "steppeLancer",
+    "eliteSteppeLancer",
+  ],
   ["bloodlines", "husbandry"],
 ];
 
 const university: TechKeys<"university">[][] = [
+  ["fortifiedWallResearch", "chemistry", "siegeEngineers", "treadmillCrane"],
   ["masonry", "architecture", "heatedShot", "arrowslits"],
-  ["fortifiedWallResearch", "chemistry", "bombardTowerResearch"],
-  ["ballistics", "siegeEngineers", "murderHoles", "treadmillCrane"],
-  ["guardTowerResearch", "keepResearch"],
+  ["guardTowerResearch", "keepResearch", "bombardTowerResearch"],
 ];
 
 function getBuildingGrid(building: Building): string[][] {
@@ -129,7 +133,30 @@ const alwaysShow = [
   "bombardCannon",
   "bloodlines",
   "fireGalley",
+  "guardTowerResearch",
 ];
+
+function filterSpecificCavs(tree: TechTree, cavs: TechKeys<"stable">[]) {
+  const stable = tree["stable"];
+  const hasCamels = !!stable["camelRider"];
+  const hasElephantos = !!stable["battleElephant"];
+  const hasSteppeLancer = !!stable["steppeLancer"];
+
+  const ret: TechKeys<"stable">[] = [];
+  if (hasCamels) {
+    ret.push("camelRider");
+    ret.push("heavyCamelRider");
+  }
+  if (hasElephantos) {
+    ret.push("battleElephant");
+    ret.push("eliteBattleElephant");
+  }
+  if (hasSteppeLancer) {
+    ret.push("steppeLancer");
+    ret.push("eliteSteppeLancer");
+  }
+  return ret;
+}
 
 interface BuildingTechsProps {
   building: Building;
@@ -161,9 +188,13 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
           // don't show it
         )
           return null;
+
+        let filteredRow = row;
+        if (row[0] === "camelRider")
+          filteredRow = filterSpecificCavs(tree, row as any);
         return (
-          <Row key={row.join("-")}>
-            {row.map((k) => {
+          <Row key={filteredRow.join("-")}>
+            {filteredRow.map((k) => {
               const haveIt = tree[building][k];
               const imageName = `${nameForWiki(k)}${
                 haveIt ? "available" : "unavailable"
