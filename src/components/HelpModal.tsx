@@ -4,7 +4,7 @@ import { DialogOverlay, DialogContent } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 
 const GITHUB_URL = "https://github.com/rynobax/aoe-alt-tab";
-const CONTACT_EMAIL = "CONTACT_EMAIL";
+const CONTACT_EMAIL = "hello@aoealttab.com";
 
 interface HelpModalProps {
   isOpen: boolean;
@@ -21,8 +21,8 @@ const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onDismiss }) => {
         <VerticalPadding />
         <Section>
           This site is a work in progress. If you have any feedback, feel free
-          to contact {CONTACT_EMAIL}. This project is open source, if you would
-          like to contribute directly{" "}
+          to contact <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          This project is open source, if you would like to contribute directly{" "}
           <a href={GITHUB_URL} target="_blank">
             check it out here.
           </a>
