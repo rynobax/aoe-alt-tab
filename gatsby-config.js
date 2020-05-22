@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Age of Empires Alt Tab`,
-    description: `Alt tab reference for Age of Empires 2.`,
+    description: `Alt tab reference for Age of Empires 2`,
     author: `@rynobax`,
   },
   plugins: [
