@@ -69,8 +69,7 @@ const monastery: TechKeys<"monastery">[][] = [
 const siegeWorkshop: TechKeys<"siegeWorkshop">[][] = [
   ["batteringRam", "cappedRam", "siegeRam"],
   ["mangonel", "onager", "siegeOnager"],
-  ["scorpion", "heavyScorpion"],
-  ["bombardCannon"],
+  ["scorpion", "heavyScorpion", "bombardCannon"],
 ];
 
 const stable: TechKeys<"stable">[][] = [
@@ -213,12 +212,12 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 `;
 
 const Image = styled(SuspenseImage)`
   /* Original image is 80x84 */
-  width: 60px;
+  width: 56px;
 
   margin-right: 16px;
 `;

@@ -82,13 +82,14 @@ const CivOverview: React.FC<CivOverviewProps> = ({
         <BuildingTechs building="lumberCamp" images={images} tree={techTree} />
         <BuildingTechs building="mill" images={images} tree={techTree} />
         <BuildingTechs building="miningCamp" images={images} tree={techTree} />
-        <BuildingTechs building="market" images={images} tree={techTree} />
+        <BuildingTechs building="siegeWorkshop" images={images} tree={techTree} />
       </Column>
       <Column>
         <BuildingTechs building="dock" images={images} tree={techTree} />
         <BuildingTechs building="monastery" images={images} tree={techTree} />
         <BuildingTechs building="university" images={images} tree={techTree} />
         <BuildingTechs building="castle" images={images} tree={techTree} />
+        <BuildingTechs building="market" images={images} tree={techTree} />
       </Column>
     </Container>
   );
