@@ -5,14 +5,6 @@ module.exports = {
     author: `@rynobax`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-102175338-3",
-        anonymize: true,
-        head: true,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -42,6 +34,14 @@ module.exports = {
         google: {
           families: ["Titillium Web:400,700", "Inter:400,700"],
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-102175338-3",
+        anonymize: true,
+        head: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
