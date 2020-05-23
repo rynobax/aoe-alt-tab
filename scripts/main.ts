@@ -3,11 +3,13 @@ import * as got from "got";
 import * as stream from "stream";
 import { promisify } from "util";
 
+const DO_IMAGES = false;
+
 const pipeline = promisify(stream.pipeline);
 
 import { scrapeWiki } from "./scrapeWiki";
 
-async function main() {
+async function main(doImages) {
   const { civs, civImages, techImages } = await scrapeWiki();
 
   // Write out civ data
@@ -15,6 +17,8 @@ async function main() {
     "sources/wiki/data/civs.json",
     JSON.stringify(civs, null, 2)
   );
+
+  if (!doImages) return;
 
   // Write out images
   if (!fs.existsSync("src/images/techs")) {
@@ -41,6 +45,6 @@ async function main() {
   );
 }
 
-main()
+main(DO_IMAGES)
   .catch(console.error)
   .then(() => console.log("done"));

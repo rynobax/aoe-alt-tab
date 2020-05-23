@@ -78,6 +78,52 @@ const cleanWikiText = (str: string) => {
   return str.trim().replace(/\[\d*\]/g, "");
 };
 
+function findUniqueTech($: CheerioStatic, age: "imp" | "castle") {
+  const alt1 = age === "castle" ? "CastleAgeUnique" : "Unique-tech-imperial";
+  const alt2 =
+    age === "castle" ? "UniqueTechCastle-DE" : "UniqueTechImperial-DE";
+
+  const res1 = $("#Unique_technologies")
+    .parent()
+    .next()
+    .find(`img[alt="${alt1}"]`);
+
+  const res2 = $("#Unique_technologies")
+    .parent()
+    .next()
+    .find(`img[alt="${alt2}"]`);
+
+  let res: Cheerio;
+  if (res1.length > 0) res = res1;
+  else if (res2.length > 0) res = res2;
+  else throw Error(`Could not find unique tech section`);
+
+  let node = res.parent().parent();
+
+  // Persians have an old tech listed
+  let filteredNode = node;
+  if (node.length > 1)
+    filteredNode = filteredNode.filter((_, e) =>
+      $(e).text().includes("only in the")
+    );
+  if (filteredNode.length === 0) filteredNode = node.parent();
+  if (node.length > 1)
+    filteredNode = filteredNode.filter((_, e) =>
+      $(e).text().includes("only in the")
+    );
+  if (filteredNode.length > 1) throw Error(`Civ has multiple ${age} techs`);
+  if (filteredNode.length === 0) throw Error(`Civ has no ${age} techs`);
+
+  try {
+    const tech = extractNameAndDesc(filteredNode.text());
+    return tech;
+  } catch (err) {
+    filteredNode = filteredNode.parent();
+    const tech = extractNameAndDesc(filteredNode.text());
+    return tech;
+  }
+}
+
 function parseMainPage(
   page: string,
   civName: string,
@@ -86,7 +132,7 @@ function parseMainPage(
   const $ = cheerio.load(page);
 
   const icon = $(`img[data-image-key="CivIcon-${civName}.png"]`);
-  if(icon.length === 0) throw Error(`Could not find icon for ${civName}`);
+  if (icon.length === 0) throw Error(`Could not find icon for ${civName}`);
   civImages.push({ name: civName, url: icon.attr("src") });
 
   const uniqueUnits = getUniqueUnitsSection($)
@@ -96,12 +142,12 @@ function parseMainPage(
     .toArray()
     .map((c) => $(c).text())
     .map(extractNameAndDesc);
-  const { name: castleName, description: castleDesc } = extractNameAndDesc(
-    $("#Unique_technologies").parent().next().children().first().text()
+
+  const { name: castleName, description: castleDesc } = findUniqueTech(
+    $,
+    "castle"
   );
-  const { name: impName, description: impDesc } = extractNameAndDesc(
-    $("#Unique_technologies").parent().next().children().first().next().text()
-  );
+  const { name: impName, description: impDesc } = findUniqueTech($, "imp");
 
   const civBonuses = $("#Civilization_bonuses")
     .parent()

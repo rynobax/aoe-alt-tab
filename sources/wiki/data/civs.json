@@ -3758,12 +3758,12 @@
       ],
       "uniqueTechs": {
         "castleAge": {
-          "name": "Recurve Bow",
-          "description": "Gives Cavalry Archers +1 attack and range."
-        },
-        "imperialAge": {
           "name": "Corvinian Army",
           "description": "Removes gold cost from Magyar Huszars."
+        },
+        "imperialAge": {
+          "name": "Recurve Bow",
+          "description": "Gives Cavalry Archers +1 attack and range."
         }
       },
       "civBonuses": [
@@ -4690,12 +4690,12 @@
       ],
       "uniqueTechs": {
         "castleAge": {
-          "name": "Boiling Oil",
-          "description": "Gives Castles +9 attack against rams (only available before the Definitive Edition)."
-        },
-        "imperialAge": {
           "name": "Kamandaran",
           "description": "Archer-line gold cost is replaced by additional wood cost (only in the Definitive Edition)."
+        },
+        "imperialAge": {
+          "name": "Mahouts",
+          "description": "Increases War Elephant speed by +30%."
         }
       },
       "civBonuses": [
