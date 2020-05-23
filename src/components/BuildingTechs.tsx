@@ -39,17 +39,13 @@ const dock: TechKeys<"dock">[][] = [
   ["careening", "dryDock", "shipwright"],
 ];
 
-const castle: TechKeys<"castle">[][] = [
-  ["conscription", "hoardings", "sappers"],
-];
+const castle: TechKeys<"castle">[][] = [["hoardings", "sappers"]];
 
 const lumberCamp: TechKeys<"lumberCamp">[][] = [
   ["doubleBitAxe", "bowSaw", "twoManSaw"],
 ];
 
-const market: TechKeys<"market">[][] = [
-  ["caravan", "coinage", "banking", "guilds"],
-];
+const market: TechKeys<"market">[][] = [["guilds"]];
 
 const mill: TechKeys<"mill">[][] = [
   ["horseCollar", "heavyPlow", "cropRotation"],
@@ -87,7 +83,7 @@ const stable: TechKeys<"stable">[][] = [
 ];
 
 const university: TechKeys<"university">[][] = [
-  ["fortifiedWallResearch", "chemistry", "siegeEngineers", "treadmillCrane"],
+  ["fortifiedWallResearch", "siegeEngineers", "treadmillCrane"],
   ["masonry", "architecture", "heatedShot", "arrowslits"],
   ["guardTowerResearch", "keepResearch", "bombardTowerResearch"],
 ];
@@ -122,18 +118,6 @@ function getBuildingGrid(building: Building): string[][] {
       return university;
   }
 }
-
-const alwaysShow = [
-  "thumbRing",
-  "supplies",
-  "redemption",
-  "heresy",
-  "faith",
-  "bombardCannon",
-  "bloodlines",
-  "fireGalley",
-  "guardTowerResearch",
-];
 
 function filterSpecificCavs(tree: TechTree, cavs: TechKeys<"stable">[]) {
   const stable = tree["stable"];
@@ -170,27 +154,20 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
 }) => {
   const grid = getBuildingGrid(building);
 
-  // If it's a meso stable, just return null
-  if (grid.every((row) => row.every((k) => !tree[building][k]))) return null;
+  const isMesoCiv = !!tree.barracks.eagleScout;
+
+  if (isMesoCiv && building === "stable") return null;
 
   const sectionName = kebabCase(building).split("-").map(capitalize).join(" ");
 
   return (
-    <>
+    <Column>
       <Header>{sectionName}</Header>
       {grid.map((row) => {
-        if (
-          // If this civ doesn't get any of the line,
-          row.every((k) => !tree[building][k]) &&
-          // and it's not a tech row we always show
-          row.every((k) => !alwaysShow.includes(k))
-          // don't show it
-        )
-          return null;
-
         let filteredRow = row;
         if (row[0] === "camelRider")
           filteredRow = filterSpecificCavs(tree, row as any);
+        if (!isMesoCiv && row[0] === "eagleScout") return null;
         return (
           <Row key={filteredRow.join("-")}>
             {filteredRow.map((k) => {
@@ -205,9 +182,14 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
           </Row>
         );
       })}
-    </>
+    </Column>
   );
 };
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const Row = styled.div`
   display: flex;
@@ -217,14 +199,15 @@ const Row = styled.div`
 
 const Image = styled(SuspenseImage)`
   /* Original image is 80x84 */
-  width: 56px;
+  width: 60px;
 
   margin-right: 16px;
 `;
 
 const Header = styled.div`
-  font-size: 16px;
-  /* font-weight: 700; */
+  font-size: 14px;
+  margin-bottom: 2px;
+  font-weight: 700;
   color: #333;
 `;
 

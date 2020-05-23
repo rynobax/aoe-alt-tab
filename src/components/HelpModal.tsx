@@ -22,6 +22,12 @@ const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onDismiss }) => {
         </Section>
         <VerticalPadding />
         <Section>
+          Techs that all civs get and are not part of a chain of techs are
+          hidden. Also, civ specific units (eagle, camels, steppe lancers) are
+          hidden if the civ does not have access to them.
+        </Section>
+        <VerticalPadding />
+        <Section>
           The info for this site comes from the{" "}
           <a href={WIKI_URL} target="_blank">
             Age of Empires Series Wiki
