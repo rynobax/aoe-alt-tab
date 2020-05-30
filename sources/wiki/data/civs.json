@@ -21,7 +21,7 @@
       "civBonuses": [
         "Start the game with an Eagle Scout.",
         "Villagers carry +5 extra resources.",
-        "All military units are created 18% faster.",
+        "All military units are created 11,1% faster.",
         "Monks gain 5 HP for every researched Monastery technology.",
         "Start with +50 gold."
       ],
@@ -1358,7 +1358,7 @@
         "eagleScout": false,
         "eagleWarrior": false,
         "eliteEagleWarrior": false,
-        "supplies": true,
+        "supplies": false,
         "squires": true,
         "arson": true
       },
@@ -1544,7 +1544,7 @@
         "eagleScout": false,
         "eagleWarrior": false,
         "eliteEagleWarrior": false,
-        "supplies": true,
+        "supplies": false,
         "squires": true,
         "arson": true
       },
@@ -2291,7 +2291,7 @@
         "eagleScout": false,
         "eagleWarrior": false,
         "eliteEagleWarrior": false,
-        "supplies": true,
+        "supplies": false,
         "squires": true,
         "arson": true
       },
@@ -3233,7 +3233,7 @@
         "eagleScout": false,
         "eagleWarrior": false,
         "eliteEagleWarrior": false,
-        "supplies": true,
+        "supplies": false,
         "squires": false,
         "arson": true
       },
@@ -3612,7 +3612,7 @@
         "eagleScout": false,
         "eagleWarrior": false,
         "eliteEagleWarrior": false,
-        "supplies": true,
+        "supplies": false,
         "squires": true,
         "arson": true
       },
@@ -4358,7 +4358,7 @@
         "eagleScout": true,
         "eagleWarrior": true,
         "eliteEagleWarrior": true,
-        "supplies": true,
+        "supplies": false,
         "squires": true,
         "arson": true
       },
@@ -4544,7 +4544,7 @@
         "eagleScout": false,
         "eagleWarrior": false,
         "eliteEagleWarrior": false,
-        "supplies": true,
+        "supplies": false,
         "squires": true,
         "arson": true
       },
@@ -5078,7 +5078,7 @@
         "Markets cost 75 wood.",
         "Transport Ships have double HP and +5 carry capacity.",
         "Galleys attack 25% faster.",
-        "Archery Range units (except Skirmishers) have +1/+2/+3 attack against standard buildings in the Feudal/Castle/Imperial Age."
+        "Archery Range units (except Skirmishers and Hand Cannoneers) have +1/+2/+3 attack against standard buildings in the Feudal/Castle/Imperial Age."
       ],
       "teamBonus": "Foot archers have +2 attack against standard buildings."
     },
@@ -5675,7 +5675,7 @@
         "eagleScout": false,
         "eagleWarrior": false,
         "eliteEagleWarrior": false,
-        "supplies": true,
+        "supplies": false,
         "squires": true,
         "arson": true
       },
