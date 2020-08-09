@@ -21,7 +21,7 @@
       "civBonuses": [
         "Start the game with an Eagle Scout.",
         "Villagers carry +5 extra resources.",
-        "All military units are created 11,1% faster.",
+        "All military units are created 11.1% faster.",
         "Monks gain 5 HP for every researched Monastery technology.",
         "Start with +50 gold."
       ],
@@ -194,6 +194,10 @@
         {
           "name": "Camel Archer",
           "description": "Mounted archer that excels at battle against other mounted archers"
+        },
+        {
+          "name": "Genitour",
+          "description": "Mounted Skirmisher"
         }
       ],
       "uniqueTechs": {
@@ -1505,7 +1509,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Steppe Husbandry",
-          "description": "Scout Cavalry line, Steppe Lancers and Cavalry Archers are trained 50%faster."
+          "description": "Scout Cavalry line, Steppe Lancers and Cavalry Archers are trained 100% faster."
         },
         "imperialAge": {
           "name": "Cuman Mercenaries",
@@ -1515,7 +1519,7 @@
       "civBonuses": [
         "Can build an additional Town Center in the Feudal Age.",
         "Siege Workshop and Battering Ram available in the Feudal Age, Capped Ram upgrade available in the Castle Age.",
-        "Cavalry moves 5%/10%/15% faster in the Feudal/Castle/Imperial Age."
+        "Cavalry move 5%/10%/15% faster in the Feudal/Castle/Imperial Age."
       ],
       "teamBonus": "Palisade Walls have +50% hit points."
     },
@@ -2445,7 +2449,7 @@
           "description": "Removes the minimum range from Slingers and Skirmishers."
         },
         "imperialAge": {
-          "name": "Couriers",
+          "name": "Fabric Shields",
           "description": "Gives Eagle Warriors, Kamayuks, and Slingers +1/+2 armor."
         }
       },
@@ -2642,7 +2646,7 @@
         }
       },
       "civBonuses": [
-        "Fishermen work 10% faster and carry +15 food.",
+        "Fishermen work 10% faster.",
         "Villagers are 10%/15%/20%/25% cheaper in the Dark/Feudal/Castle/Imperial Age.",
         "Camel Riders have +1 pierce armor."
       ],
@@ -2815,12 +2819,16 @@
         {
           "name": "Genoese Crossbowman",
           "description": "Archer with an attack bonus against cavalry"
+        },
+        {
+          "name": "Condottiero",
+          "description": "Melee infantry with an attack bonus against gunpowder units"
         }
       ],
       "uniqueTechs": {
         "castleAge": {
           "name": "Pavise",
-          "description": "Gives foot archers +1/+1 armor."
+          "description": "Gives foot archers and Condottieri +1/+1 armor."
         },
         "imperialAge": {
           "name": "Silk Road",
@@ -3396,8 +3404,7 @@
         "Stone Miners work 20% faster.",
         "Tower upgrades are free (Bombard Tower requires Chemistry).",
         "Towers (except Bombard Towers) have +1/+2 range in the Castle/Imperial Age.",
-        "Fortifications (except towers) are built 33% faster. Towers are built 5% faster (in the HD expansions only).",
-        "Military units Cost -15% less wood (except siege weapons) (since the Definitive Edition)."
+        "Military units Cost –20% less wood (except siege weapons)."
       ],
       "teamBonus": "Mangonel line minimum range reduced (1 min. range)"
     },
@@ -4691,7 +4698,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Kamandaran",
-          "description": "Archer-line gold cost is replaced by additional wood cost (only in the Definitive Edition)."
+          "description": "Archer-line gold cost is replaced by additional wood cost."
         },
         "imperialAge": {
           "name": "Mahouts",
@@ -4874,7 +4881,7 @@
         },
         {
           "name": "Caravel",
-          "description": "Warship that can damage multiple ships in a straight line"
+          "description": "Warship that can damage multiple ships in a straight line, like the Scorpion"
         }
       ],
       "uniqueTechs": {
@@ -4888,7 +4895,7 @@
         }
       },
       "civBonuses": [
-        "All units cost -15% gold.",
+        "All units cost –20% gold.",
         "All ships have +10% HP.",
         "The Feitoria becomes available for building in the Imperial Age."
       ],
@@ -5263,8 +5270,7 @@
       },
       "civBonuses": [
         "Farmers work 10% faster.",
-        "Tracking is free (in the HD expansions).",
-        "Supplies is free (in the Definitive Edition).",
+        "Supplies is free.",
         "Siege Workshop units are 15% cheaper."
       ],
       "teamBonus": "Military buildings (excluding Castles and Docks) provide +5 population."
@@ -6194,6 +6200,10 @@
         {
           "name": "Rattan Archer",
           "description": "Foot archer with high pierce armor"
+        },
+        {
+          "name": "Imperial Skirmisher",
+          "description": "Upgrade of the Elite Skirmisher, provides additional HP and attack"
         }
       ],
       "uniqueTechs": {

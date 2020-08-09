@@ -75,7 +75,12 @@ const getUniqueUnitsSection = ($: CheerioStatic) => {
 };
 
 const cleanWikiText = (str: string) => {
-  return str.trim().replace(/\[\d*\]/g, "");
+  const cleaned = str
+    .trim()
+    .replace(/\[\d*\]/g, "")
+    .replace(/( \(.*the Definitive Edition.*\))/g, "");
+  if (cleaned.includes("in the HD")) return null;
+  if (cleaned) return cleaned;
 };
 
 function findUniqueTech($: CheerioStatic, age: "imp" | "castle") {
@@ -155,7 +160,8 @@ function parseMainPage(
     .children()
     .toArray()
     .map((c) => $(c).text())
-    .map(cleanWikiText);
+    .map(cleanWikiText)
+    .filter(Boolean);
 
   const teamBonus = $("#Team_bonus")
     .parent()
