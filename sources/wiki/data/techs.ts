@@ -140,10 +140,10 @@ export const baseTechTree = () => ({
     arrowslits: true,
     chemistry: true,
     siegeEngineers: true,
-    fortifiedWallResearch: true,
-    bombardTowerResearch: true,
-    guardTowerResearch: true,
-    keepResearch: true,
+    fortifiedWall: true,
+    bombardTower: true,
+    guardTower: true,
+    keep: true,
   },
 });
 

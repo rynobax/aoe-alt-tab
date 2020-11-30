@@ -198,10 +198,10 @@ export const query = graphql`
             arrowslits
             chemistry
             siegeEngineers
-            fortifiedWallResearch
-            bombardTowerResearch
-            guardTowerResearch
-            keepResearch
+            fortifiedWall
+            bombardTower
+            guardTower
+            keep
           }
         }
       }

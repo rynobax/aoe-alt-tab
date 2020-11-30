@@ -20,7 +20,7 @@
       },
       "civBonuses": [
         "Start the game with an Eagle Scout.",
-        "Villagers carry +5 extra resources.",
+        "Villagers carry +3 extra resources.",
         "All military units are created 11.1% faster.",
         "Monks gain 5 HP for every researched Monastery technology.",
         "Start with +50 gold."
@@ -180,10 +180,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -370,10 +370,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -556,10 +556,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -585,9 +585,10 @@
       "civBonuses": [
         "Militia line units are upgraded for free.",
         "Town Centers cost -50% stone.",
+        "Blacksmith and Siege Workshop technologies cost -50% food.",
         "Can build Krepost."
       ],
-      "teamBonus": "Blacksmiths work 50% faster."
+      "teamBonus": "Blacksmiths work 80% faster."
     },
     "techTree": {
       "archeryRange": {
@@ -742,10 +743,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": false,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": false,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -928,10 +929,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -1116,10 +1117,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -1143,7 +1144,7 @@
         }
       },
       "civBonuses": [
-        "Infantry units move 15% faster.",
+        "Infantry units move 15% faster starting from the Feudal Age.",
         "Lumberjacks work 15% faster.",
         "Siege weapons fire 25% faster.",
         "Enemy herdables can be converted regardless of enemy units next to them."
@@ -1303,10 +1304,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -1490,10 +1491,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -1676,10 +1677,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": false,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": false,
-        "keepResearch": false
+        "fortifiedWall": false,
+        "bombardTower": false,
+        "guardTower": false,
+        "keep": false
       }
     }
   },
@@ -1862,10 +1863,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -2049,10 +2050,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -2079,7 +2080,7 @@
         "Infantry are 20%/25%/30%/35% cheaper in the Dark/Feudal/Castle/Imperial Age.",
         "Infantry have +1/+2/+3 attack bonus against standard buildings in the Feudal/Castle/Imperial Age.",
         "Villagers have +5 attack against Wild Boars and carry +15 food from hunting.",
-        "Loom is free.",
+        "Loom is researched instantly.",
         "+10 population cap in the Imperial Age."
       ],
       "teamBonus": "Barracks work 20% faster."
@@ -2237,10 +2238,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": false,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": false,
-        "keepResearch": false
+        "fortifiedWall": false,
+        "bombardTower": false,
+        "guardTower": false,
+        "keep": false
       }
     }
   },
@@ -2423,10 +2424,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": false,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": false,
-        "keepResearch": false
+        "fortifiedWall": false,
+        "bombardTower": false,
+        "guardTower": false,
+        "keep": false
       }
     }
   },
@@ -2615,10 +2616,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -2648,9 +2649,9 @@
       "civBonuses": [
         "Fishermen work 10% faster.",
         "Villagers are 10%/15%/20%/25% cheaper in the Dark/Feudal/Castle/Imperial Age.",
-        "Camel Riders have +1 pierce armor."
+        "Cavalry have +1 pierce armor in the Castle Age and +1 pierce armor in the Imperial Age (+2 total)."
       ],
-      "teamBonus": "Camels have +6 attack against buildings."
+      "teamBonus": "Camel Riders have +4 attack against buildings."
     },
     "techTree": {
       "archeryRange": {
@@ -2696,7 +2697,7 @@
         "ringArcherArmor": true,
         "scaleBardingArmor": true,
         "chainBardingArmor": true,
-        "plateBardingArmor": true
+        "plateBardingArmor": false
       },
       "castle": {
         "hoardings": true,
@@ -2805,10 +2806,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -2996,10 +2997,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -3182,10 +3183,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -3210,8 +3211,8 @@
       },
       "civBonuses": [
         "No buildings are required to construct certain buildings or advance in Age.",
-        "Battle Elephants move +15% faster.",
-        "Khmer Villagers drop-off food from farms (1 unit at a time) without needing a drop site, but slowing work rate by 3%.",
+        "Battle Elephants move 10% faster.",
+        "Farmers don't carry food but rather add it directly to the stockpile without any drop-off, but work 5% slower.",
         "Villagers can garrison in Houses."
       ],
       "teamBonus": "Scorpions have +1 range."
@@ -3369,10 +3370,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -3391,8 +3392,8 @@
       ],
       "uniqueTechs": {
         "castleAge": {
-          "name": "Panokseon",
-          "description": "Gives Turtle Ships +15% movement speed."
+          "name": "Eupseong",
+          "description": "Towers (except Bombard Towers) have +2 range."
         },
         "imperialAge": {
           "name": "Shinkichon",
@@ -3400,6 +3401,11 @@
         }
       },
       "civBonuses": [
+        "Villagers have +3 Line of Sight.",
+        "Stone Miners work 20% faster.",
+        "Tower upgrades are free (Bombard Tower requires Chemistry).",
+        "Archer Armor upgrades are free.",
+        "Military units Cost –20% less wood (except siege weapons).",
         "Villagers have +3 Line of Sight.",
         "Stone Miners work 20% faster.",
         "Tower upgrades are free (Bombard Tower requires Chemistry).",
@@ -3561,10 +3567,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -3590,7 +3596,7 @@
       "civBonuses": [
         "Start with +150 food.",
         "Spearman line and Skirmishers move 10% faster.",
-        "Cavalry (except the Scout Cavalry line) get +1 attack for each Relic garrisoned in the Monastery, up to +4."
+        "Cavalry (except the Scout and Cavalry Archer line) get +1 attack for each Relic garrisoned in the Monastery, up to +4."
       ],
       "teamBonus": "Monastery works 20% faster."
     },
@@ -3747,10 +3753,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -3933,10 +3939,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": false,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": false,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -4120,10 +4126,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": false,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": false,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -4306,10 +4312,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -4493,10 +4499,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -4679,10 +4685,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -4864,10 +4870,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": false,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": false,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -4897,6 +4903,7 @@
       "civBonuses": [
         "All units cost –20% gold.",
         "All ships have +10% HP.",
+        "All technologies (excluding advancing ages) are researched 30% faster.",
         "The Feitoria becomes available for building in the Imperial Age."
       ],
       "teamBonus": "Free Cartography from the beginning of the game."
@@ -5054,10 +5061,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -5067,7 +5074,7 @@
       "uniqueUnits": [
         {
           "name": "Mameluke",
-          "description": "Cavalry with a melee attack at range, and an attack bonus against other cavalry"
+          "description": "Cavalry with ranged meele attack, and an attack bonus against other cavalry"
         }
       ],
       "uniqueTechs": {
@@ -5085,7 +5092,7 @@
         "Markets cost 75 wood.",
         "Transport Ships have double HP and +5 carry capacity.",
         "Galleys attack 25% faster.",
-        "Archery Range units (except Skirmishers and Hand Cannoneers) have +1/+2/+3 attack against standard buildings in the Feudal/Castle/Imperial Age."
+        "Archery Range units (except Skirmishers and Hand Cannoneers, but including Genitours) have +1/+2/+3 attack against standard buildings in the Feudal/Castle/Imperial Age."
       ],
       "teamBonus": "Foot archers have +2 attack against standard buildings."
     },
@@ -5242,10 +5249,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -5428,10 +5435,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -5619,10 +5626,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -5636,13 +5643,13 @@
         },
         {
           "name": "Flaming Camel",
-          "description": "Camel that explode like a Petard, with attack bonuses against mounted units and Elephants"
+          "description": "Camel that explodes like a Petard, with attack bonuses against mounted units and elephants"
         }
       ],
       "uniqueTechs": {
         "castleAge": {
           "name": "Silk Armor",
-          "description": "Scout Cavalry line, Steppe Lancers and Cavalry Archers +1 pierce armor."
+          "description": "Scout Cavalry line, Steppe Lancers and Cavalry Archers +1/+1."
         },
         "imperialAge": {
           "name": "Timurid Siegecraft",
@@ -5652,7 +5659,8 @@
       "civBonuses": [
         "Herdables contain +50% food.",
         "Units do +50% damage when attacking from higher elevations (instead of +25%).",
-        "Parthian Tactics and Thumb Ring are free."
+        "Parthian Tactics and Thumb Ring are free.",
+        "Two Sheep spawn near the Town Center upon reaching the Feudal Age. Two additional Sheep spawn near each additional Town Center built."
       ],
       "teamBonus": "Cavalry Archers +2 LOS."
     },
@@ -5809,10 +5817,10 @@
         "arrowslits": false,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": false
       }
     }
   },
@@ -5998,10 +6006,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -6029,7 +6037,8 @@
         "Gunpowder technologies are 50% cheaper.",
         "Chemistry is free.",
         "Gold Miners work 20% faster.",
-        "Light Cavalry and Hussar upgrades are free."
+        "Light Cavalry and Hussar upgrades are free.",
+        "Scout line units gain +1 pierce armor."
       ],
       "teamBonus": "Gunpowder units are created 25% faster."
     },
@@ -6186,10 +6195,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": false,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -6377,10 +6386,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": true,
-        "guardTowerResearch": true,
-        "keepResearch": true
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -6567,10 +6576,10 @@
         "arrowslits": true,
         "chemistry": true,
         "siegeEngineers": true,
-        "fortifiedWallResearch": true,
-        "bombardTowerResearch": false,
-        "guardTowerResearch": true,
-        "keepResearch": false
+        "fortifiedWall": true,
+        "bombardTower": false,
+        "guardTower": true,
+        "keep": false
       }
     }
   }

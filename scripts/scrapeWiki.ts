@@ -2,7 +2,7 @@ import * as got from "got";
 import * as cheerio from "cheerio";
 import * as _ from "lodash";
 import { allCivs } from "./static";
-import { nameForWiki } from "./util";
+import { nameForWiki, nameForWikiNonAvailableStyle } from "./util";
 import { TechTree, baseTechTree } from "../sources/wiki/data/techs";
 import { Civ, Characteristics } from "../sources/wiki/wiki";
 
@@ -23,10 +23,11 @@ export async function scrapeWiki(): Promise<WikiResult> {
   let i = 0;
   const civs = await Promise.all(
     allCivs.map(async (civ) => {
+      // if (civ !== "Incas") return;
       const pages = await getWikiPages(civ);
       console.log(`done fetching ${civ} - ${++i} of ${allCivs.length}`);
       const characteristics = parseMainPage(pages.main, civ, civImages);
-      const techTree = parseTechPage(pages.tech, techImages);
+      const techTree = parseTechPage(pages.tech, techImages, civ);
       const civInfo: Civ = { name: civ, characteristics, techTree };
       return civInfo;
     })
@@ -58,7 +59,7 @@ async function getWikiPages(
 }
 
 const extractNameAndDesc = (str: string) => {
-  const res = />\s*(?<name>.+?): (?<desc>.+)/.exec(str);
+  const res = />?\s*(?<name>.+?): (?<desc>.+)/.exec(str);
   if (!res) throw Error(`Could not extract name and desc from ${str}`);
   return { name: cleanWikiText(res[1]), description: cleanWikiText(res[2]) };
 };
@@ -84,9 +85,10 @@ const cleanWikiText = (str: string) => {
 };
 
 function findUniqueTech($: CheerioStatic, age: "imp" | "castle") {
-  const alt1 = age === "castle" ? "CastleAgeUnique" : "Unique-tech-imperial";
+  const alt1 =
+    age === "castle" ? "CastleAgeUnique.png" : "Unique-tech-imperial.jpg";
   const alt2 =
-    age === "castle" ? "UniqueTechCastle-DE" : "UniqueTechImperial-DE";
+    age === "castle" ? "UniqueTechCastle-DE.png" : "UniqueTechImperial-DE.png";
 
   const res1 = $("#Unique_technologies")
     .parent()
@@ -101,7 +103,7 @@ function findUniqueTech($: CheerioStatic, age: "imp" | "castle") {
   let res: Cheerio;
   if (res1.length > 0) res = res1;
   else if (res2.length > 0) res = res2;
-  else throw Error(`Could not find unique tech section`);
+  else throw Error(`Could not find unique tech section for age ${age}`);
 
   let node = res.parent().parent();
 
@@ -134,6 +136,7 @@ function parseMainPage(
   civName: string,
   civImages: ImageInfo[]
 ): Characteristics {
+  console.log(`starting ${civName}`);
   const $ = cheerio.load(page);
 
   const icon = $(`img[data-image-key="CivIcon-${civName}.png"]`);
@@ -148,11 +151,20 @@ function parseMainPage(
     .map((c) => $(c).text())
     .map(extractNameAndDesc);
 
-  const { name: castleName, description: castleDesc } = findUniqueTech(
-    $,
-    "castle"
-  );
-  const { name: impName, description: impDesc } = findUniqueTech($, "imp");
+  const { name: castleName, description: castleDesc } =
+    civName === "Koreans"
+      ? {
+          name: "Eupseong",
+          description: "Towers (except Bombard Towers) have +2 range.",
+        }
+      : findUniqueTech($, "castle");
+  const { name: impName, description: impDesc } =
+    civName === "Koreans"
+      ? {
+          name: "Shinkichon",
+          description: "Gives the Mangonel line +1 range.",
+        }
+      : findUniqueTech($, "imp");
 
   const civBonuses = $("#Civilization_bonuses")
     .parent()
@@ -194,13 +206,13 @@ function checkIfMissing(
   techImages: ImageInfo[]
 ) {
   const prefix = nameForWiki(thing);
-  const availableName = `${prefix}available`;
-  const unavailableName = `${prefix}unavailable`;
-  const hasThing = $(`img[alt="${availableName}"]`);
-  const missingThing = $(`img[alt="${unavailableName}"]`);
+  const availableName = `${prefix}available.png`;
+  const unavailableName = `${prefix}unavailable.png`;
+  const hasThing = $(`img[data-image-key="${availableName}"]`);
+  const missingThing = $(`img[data-image-key="${unavailableName}"]`);
 
-  if (hasThing.length === 0 && missingThing.length === 0)
-    throw Error(`Could not find whether they have ${thing}`);
+  if (hasThing.length + missingThing.length === 0)
+    throw Error(`Could not find whether they have ${thing} (${prefix})`);
 
   if (hasThing.length > 0) {
     techImages.push({ name: availableName, url: hasThing.attr("data-src") });
@@ -214,7 +226,11 @@ function checkIfMissing(
   return missingThing.length === 1;
 }
 
-function parseTechPage(page: string, techImages: ImageInfo[]): TechTree {
+function parseTechPage(
+  page: string,
+  techImages: ImageInfo[],
+  civ: string
+): TechTree {
   const $ = cheerio.load(page);
   const techTree = baseTechTree();
   Object.entries(techTree).forEach(([building, tree]) => {

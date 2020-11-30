@@ -83,9 +83,9 @@ const stable: TechKeys<"stable">[][] = [
 ];
 
 const university: TechKeys<"university">[][] = [
-  ["fortifiedWallResearch", "siegeEngineers", "treadmillCrane"],
+  ["fortifiedWall", "siegeEngineers", "treadmillCrane"],
   ["masonry", "architecture", "heatedShot", "arrowslits"],
-  ["guardTowerResearch", "keepResearch", "bombardTowerResearch"],
+  ["guardTower", "keep", "bombardTower"],
 ];
 
 function getBuildingGrid(building: Building): string[][] {
