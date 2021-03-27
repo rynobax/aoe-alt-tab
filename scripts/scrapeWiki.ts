@@ -59,7 +59,9 @@ async function getWikiPages(
 }
 
 const extractNameAndDesc = (str: string) => {
-  const res = />?\s*(?<name>.+?): (?<desc>.+)/.exec(str);
+  const res1 = />?\s*(?<name>.+?): (?<desc>.+)/.exec(str);
+  const res2 = />?\s*(?<name>.+?) \((?<desc>.+)\)/.exec(str);
+  const res = res1 || res2;
   if (!res) throw Error(`Could not extract name and desc from ${str}`);
   return { name: cleanWikiText(res[1]), description: cleanWikiText(res[2]) };
 };
@@ -79,7 +81,8 @@ const cleanWikiText = (str: string) => {
   const cleaned = str
     .trim()
     .replace(/\[\d*\]/g, "")
-    .replace(/( \(.*the Definitive Edition.*\))/g, "");
+    .replace(/( \(.*the Definitive Edition.*\))/g, "")
+    .replace(/( \(.*not mentioned in the technology tree.*\))/g, "");
   if (cleaned.includes("in the HD")) return null;
   if (cleaned) return cleaned;
 };
@@ -110,13 +113,17 @@ function findUniqueTech($: CheerioStatic, age: "imp" | "castle") {
   // Persians have an old tech listed
   let filteredNode = node;
   if (node.length > 1)
-    filteredNode = filteredNode.filter((_, e) =>
-      $(e).text().includes("only in the")
+    filteredNode = filteredNode.filter(
+      (_, e) =>
+        $(e).text().includes("only in the") ||
+        $(e).text().includes("only available after")
     );
   if (filteredNode.length === 0) filteredNode = node.parent();
   if (node.length > 1)
-    filteredNode = filteredNode.filter((_, e) =>
-      $(e).text().includes("only in the")
+    filteredNode = filteredNode.filter(
+      (_, e) =>
+        $(e).text().includes("only in the") ||
+        $(e).text().includes("only available after")
     );
   if (filteredNode.length > 1) throw Error(`Civ has multiple ${age} techs`);
   if (filteredNode.length === 0) throw Error(`Civ has no ${age} techs`);
@@ -131,6 +138,14 @@ function findUniqueTech($: CheerioStatic, age: "imp" | "castle") {
   }
 }
 
+const getIcon = ($: CheerioStatic, civName: string) => {
+  const icon1 = $(`img[data-image-key="CivIcon-${civName}.png"]`);
+  const icon2 = $(
+    `img[data-image-key="Menu_techtree_${civName.toLocaleLowerCase()}.png"]`
+  );
+  return icon1.length > 0 ? icon1 : icon2;
+};
+
 function parseMainPage(
   page: string,
   civName: string,
@@ -139,7 +154,7 @@ function parseMainPage(
   console.log(`starting ${civName}`);
   const $ = cheerio.load(page);
 
-  const icon = $(`img[data-image-key="CivIcon-${civName}.png"]`);
+  const icon = getIcon($, civName);
   if (icon.length === 0) throw Error(`Could not find icon for ${civName}`);
   civImages.push({ name: civName, url: icon.attr("src") });
 

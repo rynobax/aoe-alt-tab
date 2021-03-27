@@ -21,7 +21,7 @@
       "civBonuses": [
         "Start the game with an Eagle Scout.",
         "Villagers carry +3 extra resources.",
-        "All military units are created 11.1% faster.",
+        "All military units are created 11% faster.",
         "Monks gain 5 HP for every researched Monastery technology.",
         "Start with +50 gold."
       ],
@@ -206,7 +206,7 @@
           "description": "Increases the working speed of Castles for the entire team by +25%."
         },
         "imperialAge": {
-          "name": "Maghrabi Camels",
+          "name": "Maghrebi Camels",
           "description": "Gives camel units a regeneration ability."
         }
       },
@@ -751,6 +751,197 @@
     }
   },
   {
+    "name": "Burgundians",
+    "characteristics": {
+      "uniqueUnits": [
+        {
+          "name": "Coustillier",
+          "description": "Cavalry unit that can charge their attack stat"
+        },
+        {
+          "name": "Flemish Militia",
+          "description": "Heavy infantry unit with a bonus vs cavalry; can only be obtained via the Flemish Revolution technology"
+        }
+      ],
+      "uniqueTechs": {
+        "castleAge": {
+          "name": "Burgundian Vineyards",
+          "description": "Convert all food into gold at a 2:1 ratio; Farmers slowly generate gold in addition to food.[note 1]"
+        },
+        "imperialAge": {
+          "name": "Flemish Revolution",
+          "description": "Upgrades all existing Villagers to Flemish Militia, and allows the training of Flemish Militia at Town Centers."
+        }
+      },
+      "civBonuses": [
+        "Economic upgrades are available one Age earlier than other civilizations.",
+        "Stable technologies are 50% cheaper.",
+        "Gunpowder units gain +25% attack.[note 2]",
+        "Cavalier upgrade available in the Castle Age."
+      ],
+      "teamBonus": "Relics generate both gold and food at a rate of 30 and 20 per minute respectively.[note 3]"
+    },
+    "techTree": {
+      "archeryRange": {
+        "archer": true,
+        "crossbowman": true,
+        "arbalester": false,
+        "skirmisher": true,
+        "eliteSkirmisher": true,
+        "cavalryArcher": true,
+        "heavyCavalryArcher": false,
+        "handCannoneer": true,
+        "thumbRing": false,
+        "parthianTactics": false
+      },
+      "barracks": {
+        "militia": true,
+        "manAtArms": true,
+        "longSwordsman": true,
+        "twoHandedSwordsman": true,
+        "champion": true,
+        "spearman": true,
+        "pikeman": true,
+        "halberdier": true,
+        "eagleScout": false,
+        "eagleWarrior": false,
+        "eliteEagleWarrior": false,
+        "supplies": false,
+        "squires": true,
+        "arson": true
+      },
+      "blacksmith": {
+        "forging": true,
+        "ironCasting": true,
+        "blastFurnace": true,
+        "scaleMailArmor": true,
+        "chainMailArmor": true,
+        "plateMailArmor": true,
+        "fletching": true,
+        "bodkinArrow": true,
+        "bracer": true,
+        "paddedArcherArmor": true,
+        "leatherArcherArmor": true,
+        "ringArcherArmor": false,
+        "scaleBardingArmor": true,
+        "chainBardingArmor": true,
+        "plateBardingArmor": true
+      },
+      "castle": {
+        "hoardings": true,
+        "conscription": true,
+        "sappers": true
+      },
+      "dock": {
+        "fishingShip": true,
+        "transportShip": true,
+        "tradeCog": true,
+        "galley": true,
+        "warGalley": true,
+        "galleon": true,
+        "fireGalley": true,
+        "fireShip": true,
+        "fastFireShip": true,
+        "demolitionRaft": true,
+        "demolitionShip": true,
+        "heavyDemolitionShip": false,
+        "cannonGalleon": true,
+        "eliteCannonGalleon": true,
+        "gillnets": true,
+        "careening": true,
+        "dryDock": false,
+        "shipwright": false
+      },
+      "lumberCamp": {
+        "doubleBitAxe": true,
+        "bowSaw": true,
+        "twoManSaw": true
+      },
+      "market": {
+        "caravan": true,
+        "coinage": true,
+        "banking": true,
+        "guilds": true
+      },
+      "mill": {
+        "horseCollar": true,
+        "heavyPlow": true,
+        "cropRotation": true
+      },
+      "miningCamp": {
+        "goldMining": true,
+        "goldShaftMining": true,
+        "stoneMining": true,
+        "stoneShaftMining": true
+      },
+      "monastery": {
+        "redemption": true,
+        "atonement": true,
+        "herbalMedicine": true,
+        "heresy": false,
+        "sanctity": true,
+        "fervor": true,
+        "faith": true,
+        "illumination": true,
+        "blockPrinting": true,
+        "theocracy": false
+      },
+      "stable": {
+        "scoutCavalry": true,
+        "lightCavalry": true,
+        "hussar": true,
+        "knight": true,
+        "cavalier": true,
+        "paladin": true,
+        "camelRider": false,
+        "heavyCamelRider": false,
+        "battleElephant": false,
+        "eliteBattleElephant": false,
+        "steppeLancer": false,
+        "eliteSteppeLancer": false,
+        "bloodlines": false,
+        "husbandry": true
+      },
+      "siegeWorkshop": {
+        "batteringRam": true,
+        "cappedRam": true,
+        "siegeRam": false,
+        "mangonel": true,
+        "onager": true,
+        "siegeOnager": false,
+        "scorpion": true,
+        "heavyScorpion": false,
+        "bombardCannon": true,
+        "siegeTower": true
+      },
+      "townCenter": {
+        "townWatch": true,
+        "townPatrol": true,
+        "wheelbarrow": true,
+        "handCart": true,
+        "loom": true,
+        "feudalAge": true,
+        "castleAge": true,
+        "imperialAge": true
+      },
+      "university": {
+        "treadmillCrane": true,
+        "masonry": true,
+        "architecture": true,
+        "ballistics": true,
+        "heatedShot": false,
+        "murderHoles": true,
+        "arrowslits": true,
+        "chemistry": true,
+        "siegeEngineers": false,
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
+      }
+    }
+  },
+  {
     "name": "Burmese",
     "characteristics": {
       "uniqueUnits": [
@@ -766,7 +957,7 @@
         },
         "imperialAge": {
           "name": "Manipur Cavalry",
-          "description": "Gives cavalry and Arambai +3 attack against buildings and standard buildings."
+          "description": "Gives cavalry and Arambai +6 attack against standard buildings."
         }
       },
       "civBonuses": [
@@ -1520,7 +1711,7 @@
       "civBonuses": [
         "Can build an additional Town Center in the Feudal Age.",
         "Siege Workshop and Battering Ram available in the Feudal Age, Capped Ram upgrade available in the Castle Age.",
-        "Cavalry move 5%/10%/15% faster in the Feudal/Castle/Imperial Age."
+        "Mounted units move 5%/10%/15% faster in the Feudal/Castle/Imperial Age."
       ],
       "teamBonus": "Palisade Walls have +50% hit points."
     },
@@ -1892,8 +2083,8 @@
       "civBonuses": [
         "Farm upgrades are free.",
         "Castles are 25% cheaper.",
-        "Cavalry have +20% HP (from the Feudal Age).",
-        "Foragers work 25% faster."
+        "Mounted units have +20% HP (starting in the Feudal Age).",
+        "Foragers work 15% faster."
       ],
       "teamBonus": "Knights have +2 Line of Sight."
     },
@@ -2041,7 +2232,7 @@
         "imperialAge": true
       },
       "university": {
-        "treadmillCrane": true,
+        "treadmillCrane": false,
         "masonry": true,
         "architecture": true,
         "ballistics": true,
@@ -2079,7 +2270,7 @@
       "civBonuses": [
         "Infantry are 20%/25%/30%/35% cheaper in the Dark/Feudal/Castle/Imperial Age.",
         "Infantry have +1/+2/+3 attack bonus against standard buildings in the Feudal/Castle/Imperial Age.",
-        "Villagers have +5 attack against Wild Boars and carry +15 food from hunting.",
+        "Villagers have +5 attack against aggressive huntables (Wild Boar, Javelina, Elephant, Rhinoceros) and carry +15 food from hunting.",
         "Loom is researched instantly.",
         "+10 population cap in the Imperial Age."
       ],
@@ -2261,7 +2452,7 @@
         },
         "imperialAge": {
           "name": "Atheism",
-          "description": "Adds 100 years to Wonder and Relic victory countdowns and halves the cost of Spies and Treason."
+          "description": "Adds 100 years to Wonder and Relic victory countdowns and reduces enemy Relic gold generation by 50%."
         }
       },
       "civBonuses": [
@@ -2461,7 +2652,7 @@
         "Houses support 10 population.",
         "Buildings cost -15% stone."
       ],
-      "teamBonus": "Farms are built 50% faster."
+      "teamBonus": "Farms are built 100% faster."
     },
     "techTree": {
       "archeryRange": {
@@ -2651,7 +2842,7 @@
         "Villagers are 10%/15%/20%/25% cheaper in the Dark/Feudal/Castle/Imperial Age.",
         "Cavalry have +1 pierce armor in the Castle Age and +1 pierce armor in the Imperial Age (+2 total)."
       ],
-      "teamBonus": "Camel Riders have +4 attack against buildings."
+      "teamBonus": "Camel units have +4 attack against standard buildings."
     },
     "techTree": {
       "archeryRange": {
@@ -2829,7 +3020,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Pavise",
-          "description": "Gives foot archers and Condottieri +1/+1 armor."
+          "description": "Gives foot archers (except Skirmishers; the technology tree omits this) and Condottieri +1/+1 armor."
         },
         "imperialAge": {
           "name": "Silk Road",
@@ -2838,7 +3029,7 @@
       },
       "civBonuses": [
         "Advancing to the next Age is 15% cheaper.",
-        "Dock technologies are 50% cheaper.",
+        "Dock and University technologies are 33% cheaper.",
         "Fishing Ships are 15% cheaper.",
         "Gunpowder units are 20% cheaper."
       ],
@@ -3361,7 +3552,7 @@
         "imperialAge": true
       },
       "university": {
-        "treadmillCrane": true,
+        "treadmillCrane": false,
         "masonry": true,
         "architecture": true,
         "ballistics": true,
@@ -3405,12 +3596,12 @@
         "Stone Miners work 20% faster.",
         "Tower upgrades are free (Bombard Tower requires Chemistry).",
         "Archer Armor upgrades are free.",
-        "Military units Cost –20% less wood (except siege weapons).",
+        "Military units Cost –20% less wood (except siege weapons).",
         "Villagers have +3 Line of Sight.",
         "Stone Miners work 20% faster.",
         "Tower upgrades are free (Bombard Tower requires Chemistry).",
         "Towers (except Bombard Towers) have +1/+2 range in the Castle/Imperial Age.",
-        "Military units Cost –20% less wood (except siege weapons)."
+        "Military units Cost –20% less wood."
       ],
       "teamBonus": "Mangonel line minimum range reduced (1 min. range)"
     },
@@ -3479,7 +3670,7 @@
         "demolitionShip": false,
         "heavyDemolitionShip": false,
         "cannonGalleon": true,
-        "eliteCannonGalleon": false,
+        "eliteCannonGalleon": true,
         "gillnets": true,
         "careening": true,
         "dryDock": true,
@@ -3596,7 +3787,7 @@
       "civBonuses": [
         "Start with +150 food.",
         "Spearman line and Skirmishers move 10% faster.",
-        "Cavalry (except the Scout and Cavalry Archer line) get +1 attack for each Relic garrisoned in the Monastery, up to +4."
+        "Each garrisoned Relic gives +1 attack to Knights and Leitis (maximum +4)."
       ],
       "teamBonus": "Monastery works 20% faster."
     },
@@ -4330,8 +4521,8 @@
       ],
       "uniqueTechs": {
         "castleAge": {
-          "name": "Obsidian Arrows",
-          "description": "Gives Archers +6 attack against standard buildings and stone defense."
+          "name": "Hul'che Javelineers",
+          "description": "Skirmishers throw two projectiles (only available after update 44725)."
         },
         "imperialAge": {
           "name": "El Dorado",
@@ -4906,7 +5097,7 @@
         "All technologies (excluding advancing ages) are researched 30% faster.",
         "The Feitoria becomes available for building in the Imperial Age."
       ],
-      "teamBonus": "Free Cartography from the beginning of the game."
+      "teamBonus": "The Line of Sight is shared with the team from the beginning of the game."
     },
     "techTree": {
       "archeryRange": {
@@ -5074,7 +5265,7 @@
       "uniqueUnits": [
         {
           "name": "Mameluke",
-          "description": "Cavalry with ranged meele attack, and an attack bonus against other cavalry"
+          "description": "Cavalry with ranged melee attack, and an attack bonus against other cavalry"
         }
       ],
       "uniqueTechs": {
@@ -5084,7 +5275,7 @@
         },
         "imperialAge": {
           "name": "Zealotry",
-          "description": "Gives camel units +30 HP."
+          "description": "Gives camel units +20 HP."
         }
       },
       "civBonuses": [
@@ -5092,7 +5283,7 @@
         "Markets cost 75 wood.",
         "Transport Ships have double HP and +5 carry capacity.",
         "Galleys attack 25% faster.",
-        "Archery Range units (except Skirmishers and Hand Cannoneers, but including Genitours) have +1/+2/+3 attack against standard buildings in the Feudal/Castle/Imperial Age."
+        "Camel units +10 HP."
       ],
       "teamBonus": "Foot archers have +2 attack against standard buildings."
     },
@@ -5253,6 +5444,193 @@
         "bombardTower": false,
         "guardTower": true,
         "keep": true
+      }
+    }
+  },
+  {
+    "name": "Sicilians",
+    "characteristics": {
+      "uniqueUnits": [
+        {
+          "name": "Serjeant",
+          "description": "Infantry unit that can also build Donjons."
+        }
+      ],
+      "uniqueTechs": {
+        "castleAge": {
+          "name": "First Crusade",
+          "description": "Upon researching, each Town Center (up to 5) spawns a one-time group of 7 Serjeants."
+        },
+        "imperialAge": {
+          "name": "Scutage",
+          "description": "Upon researching, each team member receives a one-time payment of 15 gold for each military unit that they own."
+        }
+      },
+      "civBonuses": [
+        "Castles and Town Centers are constructed 100% faster.[note 1]",
+        "Land military units (except siege units) receive 50% less bonus damage.[note 2]",
+        "Farm upgrades provide +100% additional food to Farms before they need to be reseeded.[note 3]",
+        "Can build Donjons, which replace the regular Watch Tower line."
+      ],
+      "teamBonus": "Transport Ships +5 carry capacity and +10 armor versus anti-ship bonus damage."
+    },
+    "techTree": {
+      "archeryRange": {
+        "archer": true,
+        "crossbowman": true,
+        "arbalester": true,
+        "skirmisher": true,
+        "eliteSkirmisher": true,
+        "cavalryArcher": true,
+        "heavyCavalryArcher": false,
+        "handCannoneer": false,
+        "thumbRing": false,
+        "parthianTactics": false
+      },
+      "barracks": {
+        "militia": true,
+        "manAtArms": true,
+        "longSwordsman": true,
+        "twoHandedSwordsman": true,
+        "champion": true,
+        "spearman": true,
+        "pikeman": true,
+        "halberdier": true,
+        "eagleScout": false,
+        "eagleWarrior": false,
+        "eliteEagleWarrior": false,
+        "supplies": true,
+        "squires": true,
+        "arson": true
+      },
+      "blacksmith": {
+        "forging": true,
+        "ironCasting": true,
+        "blastFurnace": true,
+        "scaleMailArmor": true,
+        "chainMailArmor": true,
+        "plateMailArmor": true,
+        "fletching": true,
+        "bodkinArrow": true,
+        "bracer": true,
+        "paddedArcherArmor": true,
+        "leatherArcherArmor": true,
+        "ringArcherArmor": false,
+        "scaleBardingArmor": true,
+        "chainBardingArmor": true,
+        "plateBardingArmor": true
+      },
+      "castle": {
+        "hoardings": true,
+        "conscription": true,
+        "sappers": true
+      },
+      "dock": {
+        "fishingShip": true,
+        "transportShip": true,
+        "tradeCog": true,
+        "galley": true,
+        "warGalley": true,
+        "galleon": true,
+        "fireGalley": true,
+        "fireShip": true,
+        "fastFireShip": true,
+        "demolitionRaft": true,
+        "demolitionShip": true,
+        "heavyDemolitionShip": true,
+        "cannonGalleon": true,
+        "eliteCannonGalleon": false,
+        "gillnets": true,
+        "careening": true,
+        "dryDock": true,
+        "shipwright": true
+      },
+      "lumberCamp": {
+        "doubleBitAxe": true,
+        "bowSaw": true,
+        "twoManSaw": false
+      },
+      "market": {
+        "caravan": true,
+        "coinage": true,
+        "banking": true,
+        "guilds": false
+      },
+      "mill": {
+        "horseCollar": true,
+        "heavyPlow": true,
+        "cropRotation": true
+      },
+      "miningCamp": {
+        "goldMining": true,
+        "goldShaftMining": true,
+        "stoneMining": true,
+        "stoneShaftMining": true
+      },
+      "monastery": {
+        "redemption": false,
+        "atonement": false,
+        "herbalMedicine": true,
+        "heresy": false,
+        "sanctity": true,
+        "fervor": true,
+        "faith": true,
+        "illumination": true,
+        "blockPrinting": false,
+        "theocracy": false
+      },
+      "stable": {
+        "scoutCavalry": true,
+        "lightCavalry": true,
+        "hussar": false,
+        "knight": true,
+        "cavalier": true,
+        "paladin": false,
+        "camelRider": false,
+        "heavyCamelRider": false,
+        "battleElephant": false,
+        "eliteBattleElephant": false,
+        "steppeLancer": false,
+        "eliteSteppeLancer": false,
+        "bloodlines": true,
+        "husbandry": true
+      },
+      "siegeWorkshop": {
+        "batteringRam": true,
+        "cappedRam": true,
+        "siegeRam": true,
+        "mangonel": true,
+        "onager": true,
+        "siegeOnager": false,
+        "scorpion": true,
+        "heavyScorpion": true,
+        "bombardCannon": false,
+        "siegeTower": true
+      },
+      "townCenter": {
+        "townWatch": true,
+        "townPatrol": true,
+        "wheelbarrow": true,
+        "handCart": true,
+        "loom": true,
+        "feudalAge": true,
+        "castleAge": true,
+        "imperialAge": true
+      },
+      "university": {
+        "treadmillCrane": true,
+        "masonry": true,
+        "architecture": false,
+        "ballistics": true,
+        "heatedShot": true,
+        "murderHoles": true,
+        "arrowslits": true,
+        "chemistry": true,
+        "siegeEngineers": true,
+        "fortifiedWall": false,
+        "bombardTower": false,
+        "guardTower": false,
+        "keep": false
       }
     }
   },
@@ -5426,7 +5804,7 @@
         "imperialAge": true
       },
       "university": {
-        "treadmillCrane": true,
+        "treadmillCrane": false,
         "masonry": true,
         "architecture": false,
         "ballistics": true,
@@ -5660,7 +6038,7 @@
         "Herdables contain +50% food.",
         "Units do +50% damage when attacking from higher elevations (instead of +25%).",
         "Parthian Tactics and Thumb Ring are free.",
-        "Two Sheep spawn near the Town Center upon reaching the Feudal Age. Two additional Sheep spawn near each additional Town Center built."
+        "Two Sheep spawn near newly-constructed Town Centers starting in the Castle Age."
       ],
       "teamBonus": "Cavalry Archers +2 LOS."
     },
@@ -5836,7 +6214,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Ironclad",
-          "description": "Gives siege weapons +4 armor."
+          "description": "Gives siege weapons +4 melee armor."
         },
         "imperialAge": {
           "name": "Crenellations",
@@ -5849,7 +6227,7 @@
         "Murder Holes and Herbal Medicine are free.",
         "Farms are 40% cheaper.",
         "Town Centers can garrison +10 units.",
-        "Barracks and Stable units receive +1 melee armor in the Castle Age and +1 in the Imperial Age."
+        "Barracks and Stable units receive +1/+2 melee armor in the Castle/Imperial Age."
       ],
       "teamBonus": "Units resist conversion (half as effective as Faith, but stacks with the effect of this technology)."
     },
@@ -6025,20 +6403,19 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Sipahi",
-          "description": "Gives Cavalry Archers +20 HP."
+          "description": "Cavalry Archer units +20 hit points"
         },
         "imperialAge": {
           "name": "Artillery",
-          "description": "Gives Bombard Cannons, Cannon Galleons, and Bombard Towers +2 range."
+          "description": "+2 range for Bombard Towers, Bombard Cannons, Cannon Galleons"
         }
       },
       "civBonuses": [
         "Gunpowder units have +25% HP.",
-        "Gunpowder technologies are 50% cheaper.",
-        "Chemistry is free.",
+        "Gunpowder technologies are 50% cheaper; Chemistry is free.",
         "Gold Miners work 20% faster.",
         "Light Cavalry and Hussar upgrades are free.",
-        "Scout line units gain +1 pierce armor."
+        "Scout Cavalry line gain +1 pierce armor."
       ],
       "teamBonus": "Gunpowder units are created 25% faster."
     },
@@ -6226,7 +6603,7 @@
         }
       },
       "civBonuses": [
-        "Reveal enemy positions at game start.",
+        "Reveal enemy initial Town Centers location at the start of the game.",
         "Archery Range units have +20% HP.",
         "Conscription is free.",
         "Economic upgrades cost no wood."
