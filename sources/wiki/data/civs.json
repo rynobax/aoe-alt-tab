@@ -766,7 +766,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Burgundian Vineyards",
-          "description": "Convert all food into gold at a 2:1 ratio; Farmers slowly generate gold in addition to food.[note 1]"
+          "description": "Convert all food into gold at a 2:1 ratio; Farmers slowly generate gold in addition to food."
         },
         "imperialAge": {
           "name": "Flemish Revolution",
@@ -776,10 +776,10 @@
       "civBonuses": [
         "Economic upgrades are available one Age earlier than other civilizations.",
         "Stable technologies are 50% cheaper.",
-        "Gunpowder units gain +25% attack.[note 2]",
+        "Gunpowder units gain +25% attack.",
         "Cavalier upgrade available in the Castle Age."
       ],
-      "teamBonus": "Relics generate both gold and food at a rate of 30 and 20 per minute respectively.[note 3]"
+      "teamBonus": "Relics generate both gold and food at a rate of 30 and 20 per minute respectively."
     },
     "techTree": {
       "archeryRange": {
@@ -5467,9 +5467,9 @@
         }
       },
       "civBonuses": [
-        "Castles and Town Centers are constructed 100% faster.[note 1]",
-        "Land military units (except siege units) receive 50% less bonus damage.[note 2]",
-        "Farm upgrades provide +100% additional food to Farms before they need to be reseeded.[note 3]",
+        "Castles and Town Centers are constructed 100% faster.",
+        "Land military units (except siege units) receive 50% less bonus damage.",
+        "Farm upgrades provide +100% additional food to Farms before they need to be reseeded.",
         "Can build Donjons, which replace the regular Watch Tower line."
       ],
       "teamBonus": "Transport Ships +5 carry capacity and +10 armor versus anti-ship bonus damage."

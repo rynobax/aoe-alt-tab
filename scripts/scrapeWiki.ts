@@ -82,7 +82,8 @@ const cleanWikiText = (str: string) => {
     .trim()
     .replace(/\[\d*\]/g, "")
     .replace(/( \(.*the Definitive Edition.*\))/g, "")
-    .replace(/( \(.*not mentioned in the technology tree.*\))/g, "");
+    .replace(/( \(.*not mentioned in the technology tree.*\))/g, "")
+    .replace(/\[.*note \d.*\]/g, "");
   if (cleaned.includes("in the HD")) return null;
   if (cleaned) return cleaned;
 };
