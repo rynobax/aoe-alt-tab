@@ -3020,7 +3020,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Pavise",
-          "description": "Gives foot archers (except Skirmishers; the technology tree omits this) and Condottieri +1/+1 armor."
+          "description": "Gives foot archers (except Skirmishers; the technology tree omits this) and Condottieri +1/+1 armor."
         },
         "imperialAge": {
           "name": "Silk Road",
@@ -3596,12 +3596,12 @@
         "Stone Miners work 20% faster.",
         "Tower upgrades are free (Bombard Tower requires Chemistry).",
         "Archer Armor upgrades are free.",
-        "Military units Cost –20% less wood (except siege weapons).",
+        "Military units cost –20% less wood (except siege weapons).",
         "Villagers have +3 Line of Sight.",
         "Stone Miners work 20% faster.",
         "Tower upgrades are free (Bombard Tower requires Chemistry).",
         "Towers (except Bombard Towers) have +1/+2 range in the Castle/Imperial Age.",
-        "Military units Cost –20% less wood."
+        "Military units cost –20% less wood."
       ],
       "teamBonus": "Mangonel line minimum range reduced (1 min. range)"
     },
@@ -4522,7 +4522,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Hul'che Javelineers",
-          "description": "Skirmishers throw two projectiles (only available after update 44725)."
+          "description": "Skirmishers throw two projectiles."
         },
         "imperialAge": {
           "name": "El Dorado",
@@ -6027,7 +6027,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Silk Armor",
-          "description": "Scout Cavalry line, Steppe Lancers and Cavalry Archers +1/+1."
+          "description": "Scout Cavalry line, Steppe Lancers and Cavalry Archers have +1/+1 armor."
         },
         "imperialAge": {
           "name": "Timurid Siegecraft",
