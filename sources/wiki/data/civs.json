@@ -766,7 +766,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Burgundian Vineyards",
-          "description": "Convert all food into gold at a 2:1 ratio; Farmers slowly generate gold in addition to food."
+          "description": "Convert half of all food into gold at a 2:1 ratio; Farmers slowly generate gold in addition to food."
         },
         "imperialAge": {
           "name": "Flemish Revolution",
@@ -774,12 +774,12 @@
         }
       },
       "civBonuses": [
-        "Economic upgrades are available one Age earlier than other civilizations.",
+        "Economic upgrades cost -50% food and are available one Age earlier than other civilizations.",
         "Stable technologies are 50% cheaper.",
         "Gunpowder units gain +25% attack.",
         "Cavalier upgrade available in the Castle Age."
       ],
-      "teamBonus": "Relics generate both gold and food at a rate of 30 and 20 per minute respectively."
+      "teamBonus": "Relics generate food in addition to gold."
     },
     "techTree": {
       "archeryRange": {
@@ -1523,7 +1523,7 @@
       },
       "civBonuses": [
         "Start game with three extra Villagers, but with -200 food and -50 wood.",
-        "Town Centers support ten population (instead of five) and have +5 Line of Sight.",
+        "Town Centers support ten population (instead of five) and have +5 Line of Sight.",
         "Technologies are 10%/15%/20% cheaper in the Feudal/Castle/Imperial Age.",
         "Demolition Ships have +50% HP."
       ],
@@ -1713,7 +1713,7 @@
         "Siege Workshop and Battering Ram available in the Feudal Age, Capped Ram upgrade available in the Castle Age.",
         "Mounted units move 5%/10%/15% faster in the Feudal/Castle/Imperial Age."
       ],
-      "teamBonus": "Palisade Walls have +50% hit points."
+      "teamBonus": "Palisade Walls have +33% hit points."
     },
     "techTree": {
       "archeryRange": {
@@ -2072,12 +2072,12 @@
       ],
       "uniqueTechs": {
         "castleAge": {
-          "name": "Chivalry",
-          "description": "Increases the work rate of Stables by +40%."
+          "name": "Bearded Axe",
+          "description": "Throwing Axeman +1 range"
         },
         "imperialAge": {
-          "name": "Bearded Axe",
-          "description": "Gives Throwing Axemen +1 range."
+          "name": "Chivalry",
+          "description": "Stables work 40% faster"
         }
       },
       "civBonuses": [
@@ -2632,7 +2632,7 @@
         },
         {
           "name": "Slinger",
-          "description": "Archer with an attack bonus against infantry"
+          "description": "Archer with an attack bonus against infantry"
         }
       ],
       "uniqueTechs": {
@@ -2648,7 +2648,7 @@
       "civBonuses": [
         "Start the game with an Eagle Scout.",
         "Start with a free Llama.",
-        "Villagers benefit from Blacksmith infantry upgrades.",
+        "Villagers benefit from Blacksmith infantry upgrades starting in the Castle Age.",
         "Houses support 10 population.",
         "Buildings cost -15% stone."
       ],
@@ -3020,7 +3020,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Pavise",
-          "description": "Gives foot archers (except Skirmishers; the technology tree omits this) and Condottieri +1/+1 armor."
+          "description": "Gives foot archers (except Skirmishers) and Condottieri +1/+1 armor."
         },
         "imperialAge": {
           "name": "Silk Road",
@@ -3401,7 +3401,7 @@
         }
       },
       "civBonuses": [
-        "No buildings are required to construct certain buildings or advance in Age.",
+        "No buildings are required to advance to the next age or to unlock other buildings.",
         "Battle Elephants move 10% faster.",
         "Farmers don't carry food but rather add it directly to the stockpile without any drop-off, but work 5% slower.",
         "Villagers can garrison in Houses."
@@ -3781,7 +3781,7 @@
         },
         "imperialAge": {
           "name": "Tower Shields",
-          "description": "Spearman line and Skirmishers +2 pierce armor."
+          "description": "Spearman line and Skirmishers +2 pierce armor."
         }
       },
       "civBonuses": [
@@ -4159,8 +4159,8 @@
       "civBonuses": [
         "Advancing in Age is +66% faster (so they need 60% of the usual time).",
         "Fish Traps are 33% cheaper.",
-        "Fish Traps provide unlimited food.",
-        "Battle Elephants are 30% cheaper."
+        "Fish Traps provide 3 times more food.",
+        "Battle Elephants are 30% cheaper in the Castle Age, 40% cheaper in the Imperial Age."
       ],
       "teamBonus": "Docks have double Line of Sight."
     },
@@ -5078,7 +5078,7 @@
         },
         {
           "name": "Caravel",
-          "description": "Warship that can damage multiple ships in a straight line, like the Scorpion"
+          "description": "Warship that can damage multiple ships in a straight line, like the Scorpion"
         }
       ],
       "uniqueTechs": {
@@ -5459,7 +5459,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "First Crusade",
-          "description": "Upon researching, each Town Center (up to 5) spawns a one-time group of 7 Serjeants."
+          "description": "Upon researching, each Town Center (up to 5) spawns a one-time group of 7 Serjeants; also increases resistance against conversion."
         },
         "imperialAge": {
           "name": "Scutage",
@@ -5554,7 +5554,7 @@
         "caravan": true,
         "coinage": true,
         "banking": true,
-        "guilds": false
+        "guilds": true
       },
       "mill": {
         "horseCollar": true,
@@ -5601,7 +5601,7 @@
         "siegeRam": true,
         "mangonel": true,
         "onager": true,
-        "siegeOnager": false,
+        "siegeOnager": true,
         "scorpion": true,
         "heavyScorpion": true,
         "bombardCannon": false,
@@ -5844,7 +5844,7 @@
         }
       },
       "civBonuses": [
-        "Builders work 30% faster.",
+        "Builders work 30% faster (20% for Wonders).",
         "Blacksmith upgrades cost no gold.",
         "Cannon Galleons have better accuracy and faster cannonballs.",
         "Hand Cannoneers and Bombard Cannons fire 18% faster."
@@ -6229,7 +6229,7 @@
         "Town Centers can garrison +10 units.",
         "Barracks and Stable units receive +1/+2 melee armor in the Castle/Imperial Age."
       ],
-      "teamBonus": "Units resist conversion (half as effective as Faith, but stacks with the effect of this technology)."
+      "teamBonus": "Units resist conversion (half as effective as Faith, but stacks with the effect of this technology)."
     },
     "techTree": {
       "archeryRange": {
