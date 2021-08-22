@@ -136,6 +136,7 @@
         "scoutCavalry": false,
         "lightCavalry": false,
         "hussar": false,
+        "wingedHussar": true,
         "knight": false,
         "cavalier": false,
         "paladin": false,
@@ -326,6 +327,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -512,6 +514,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -558,6 +561,199 @@
         "siegeEngineers": true,
         "fortifiedWall": true,
         "bombardTower": false,
+        "guardTower": true,
+        "keep": true
+      }
+    }
+  },
+  {
+    "name": "Bohemians",
+    "characteristics": {
+      "uniqueUnits": [
+        {
+          "name": "Hussite Wagon",
+          "description": "A gunpowder siege weapon unit which can protect units positioned behind them"
+        },
+        {
+          "name": "Houfnice",
+          "description": "Bombard Cannon upgrade"
+        }
+      ],
+      "uniqueTechs": {
+        "castleAge": {
+          "name": "Wagenburg Tactics",
+          "description": "Gunpowder units move 15% faster"
+        },
+        "imperialAge": {
+          "name": "Hussite Reforms",
+          "description": "Monks and Monastery upgrades have their gold cost replaced by food"
+        }
+      },
+      "civBonuses": [
+        "Blacksmiths, Monasteries, and Universities cost -100 wood.",
+        "Chemistry and Hand Cannoneer available in Castle Age.",
+        "Spearman-line deals +25% bonus damage.",
+        "Fervor and Sanctity affect Villagers.",
+        "Mining Camp technologies are free."
+      ],
+      "teamBonus": "Markets work 80% faster"
+    },
+    "techTree": {
+      "archeryRange": {
+        "archer": true,
+        "crossbowman": true,
+        "arbalester": true,
+        "skirmisher": true,
+        "eliteSkirmisher": true,
+        "cavalryArcher": false,
+        "heavyCavalryArcher": false,
+        "handCannoneer": true,
+        "thumbRing": false,
+        "parthianTactics": false
+      },
+      "barracks": {
+        "militia": true,
+        "manAtArms": true,
+        "longSwordsman": true,
+        "twoHandedSwordsman": true,
+        "champion": true,
+        "spearman": true,
+        "pikeman": true,
+        "halberdier": true,
+        "eagleScout": false,
+        "eagleWarrior": false,
+        "eliteEagleWarrior": false,
+        "supplies": true,
+        "squires": true,
+        "arson": true
+      },
+      "blacksmith": {
+        "forging": true,
+        "ironCasting": true,
+        "blastFurnace": true,
+        "scaleMailArmor": true,
+        "chainMailArmor": true,
+        "plateMailArmor": true,
+        "fletching": true,
+        "bodkinArrow": true,
+        "bracer": true,
+        "paddedArcherArmor": true,
+        "leatherArcherArmor": true,
+        "ringArcherArmor": true,
+        "scaleBardingArmor": true,
+        "chainBardingArmor": true,
+        "plateBardingArmor": false
+      },
+      "castle": {
+        "hoardings": false,
+        "conscription": true,
+        "sappers": true
+      },
+      "dock": {
+        "fishingShip": true,
+        "transportShip": true,
+        "tradeCog": true,
+        "galley": true,
+        "warGalley": true,
+        "galleon": true,
+        "fireGalley": true,
+        "fireShip": true,
+        "fastFireShip": false,
+        "demolitionRaft": true,
+        "demolitionShip": true,
+        "heavyDemolitionShip": false,
+        "cannonGalleon": true,
+        "eliteCannonGalleon": true,
+        "gillnets": true,
+        "careening": true,
+        "dryDock": false,
+        "shipwright": false
+      },
+      "lumberCamp": {
+        "doubleBitAxe": true,
+        "bowSaw": true,
+        "twoManSaw": true
+      },
+      "market": {
+        "caravan": true,
+        "coinage": true,
+        "banking": true,
+        "guilds": true
+      },
+      "mill": {
+        "horseCollar": true,
+        "heavyPlow": true,
+        "cropRotation": false
+      },
+      "miningCamp": {
+        "goldMining": true,
+        "goldShaftMining": true,
+        "stoneMining": true,
+        "stoneShaftMining": true
+      },
+      "monastery": {
+        "redemption": true,
+        "atonement": true,
+        "herbalMedicine": true,
+        "heresy": true,
+        "sanctity": true,
+        "fervor": true,
+        "faith": true,
+        "illumination": true,
+        "blockPrinting": true,
+        "theocracy": true
+      },
+      "stable": {
+        "scoutCavalry": true,
+        "lightCavalry": true,
+        "hussar": false,
+        "wingedHussar": true,
+        "knight": true,
+        "cavalier": true,
+        "paladin": false,
+        "camelRider": false,
+        "heavyCamelRider": false,
+        "battleElephant": false,
+        "eliteBattleElephant": false,
+        "steppeLancer": false,
+        "eliteSteppeLancer": false,
+        "bloodlines": false,
+        "husbandry": true
+      },
+      "siegeWorkshop": {
+        "batteringRam": true,
+        "cappedRam": true,
+        "siegeRam": false,
+        "mangonel": true,
+        "onager": true,
+        "siegeOnager": false,
+        "scorpion": true,
+        "heavyScorpion": true,
+        "bombardCannon": true,
+        "siegeTower": true
+      },
+      "townCenter": {
+        "townWatch": true,
+        "townPatrol": true,
+        "wheelbarrow": true,
+        "handCart": true,
+        "loom": true,
+        "feudalAge": true,
+        "castleAge": true,
+        "imperialAge": true
+      },
+      "university": {
+        "treadmillCrane": true,
+        "masonry": true,
+        "architecture": true,
+        "ballistics": true,
+        "heatedShot": false,
+        "murderHoles": true,
+        "arrowslits": true,
+        "chemistry": true,
+        "siegeEngineers": true,
+        "fortifiedWall": true,
+        "bombardTower": true,
         "guardTower": true,
         "keep": true
       }
@@ -699,6 +895,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -890,6 +1087,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -953,7 +1151,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Howdah",
-          "description": "Gives Battle Elephants +1/+1 armor."
+          "description": "Gives Battle Elephants +1/+2 armor."
         },
         "imperialAge": {
           "name": "Manipur Cavalry",
@@ -1076,6 +1274,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -1151,7 +1350,7 @@
         "Camel Riders, Skirmishers, and the Spearman lines are 25% cheaper.",
         "Fire Ships fire 25% faster.",
         "Advancing to the Imperial Age is 33% cheaper.",
-        "Town Watch is free."
+        "Town Watch and Town Patrol are free."
       ],
       "teamBonus": "Monks heal 50% faster."
     },
@@ -1264,6 +1463,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -1451,6 +1651,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -1527,7 +1728,7 @@
         "Technologies are 10%/15%/20% cheaper in the Feudal/Castle/Imperial Age.",
         "Demolition Ships have +50% HP."
       ],
-      "teamBonus": "Farms start with +45 food."
+      "teamBonus": "Farms start with +10% food."
     },
     "techTree": {
       "archeryRange": {
@@ -1638,6 +1839,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -1711,7 +1913,8 @@
       "civBonuses": [
         "Can build an additional Town Center in the Feudal Age.",
         "Siege Workshop and Battering Ram available in the Feudal Age, Capped Ram upgrade available in the Castle Age.",
-        "Mounted units move 5%/10%/15% faster in the Feudal/Castle/Imperial Age."
+        "Archery Ranges and Stables cost -100 wood.",
+        "Cavalry move 5%/10%/15% faster in the Feudal/Castle/Imperial Age."
       ],
       "teamBonus": "Palisade Walls have +33% hit points."
     },
@@ -1824,6 +2027,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -1887,7 +2091,7 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "Royal Heirs",
-          "description": "Halves the creation time of Shotel Warriors."
+          "description": "Halves the creation time of Shotel Warriors."
         },
         "imperialAge": {
           "name": "Torsion Engines",
@@ -2010,6 +2214,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -2197,6 +2402,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -2385,6 +2591,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -2571,6 +2778,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -2763,6 +2971,7 @@
         "scoutCavalry": false,
         "lightCavalry": false,
         "hussar": false,
+        "wingedHussar": true,
         "knight": false,
         "cavalier": false,
         "paladin": false,
@@ -2953,6 +3162,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": false,
         "cavalier": false,
         "paladin": false,
@@ -3144,6 +3354,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -3330,6 +3541,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -3517,6 +3729,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -3714,6 +3927,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -3771,7 +3985,11 @@
       "uniqueUnits": [
         {
           "name": "Leitis",
-          "description": "Cavalry whose attack ignores armor."
+          "description": "Cavalry whose attack ignores unit's armor."
+        },
+        {
+          "name": "Winged Hussar",
+          "description": "a more powerful replacement of a Hussar requiring a more expensive upgrade."
         }
       ],
       "uniqueTechs": {
@@ -3789,7 +4007,7 @@
         "Spearman line and Skirmishers move 10% faster.",
         "Each garrisoned Relic gives +1 attack to Knights and Leitis (maximum +4)."
       ],
-      "teamBonus": "Monastery works 20% faster."
+      "teamBonus": "Monasteries work 20% faster."
     },
     "techTree": {
       "archeryRange": {
@@ -3823,7 +4041,7 @@
       "blacksmith": {
         "forging": true,
         "ironCasting": true,
-        "blastFurnace": true,
+        "blastFurnace": false,
         "scaleMailArmor": true,
         "chainMailArmor": true,
         "plateMailArmor": false,
@@ -3900,6 +4118,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -3975,7 +4194,7 @@
         "Scout Cavalry line is 15% cheaper.",
         "Villagers kill wild animals in one strike."
       ],
-      "teamBonus": "Foot archers have +2 Line of Sight."
+      "teamBonus": "Foot archers (except Skirmishers) have +2 Line of Sight."
     },
     "techTree": {
       "archeryRange": {
@@ -4086,6 +4305,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -4273,6 +4493,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -4346,7 +4567,7 @@
       "civBonuses": [
         "Buildings cost -15% wood (except Farms).",
         "Barracks units have +1/+2/+3 pierce armor in the Feudal/Castle/Imperial Age.",
-        "Gold Mining is free."
+        "Gold Mines last 30% longer."
       ],
       "teamBonus": "Universities research +80% faster."
     },
@@ -4459,6 +4680,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -4533,7 +4755,7 @@
         "Start the game with an Eagle Scout.",
         "Start the game with +1 Villager, but with -50 food.",
         "Resources last 15% longer.",
-        "Foot archers are 10%/20%/30% cheaper in the Feudal/Castle/Imperial Age."
+        "Foot archers (except Skirmishers) are 10%/20%/30% cheaper in the Feudal/Castle/Imperial Age."
       ],
       "teamBonus": "Walls are 50% cheaper."
     },
@@ -4646,6 +4868,7 @@
         "scoutCavalry": false,
         "lightCavalry": false,
         "hussar": false,
+        "wingedHussar": true,
         "knight": false,
         "cavalier": false,
         "paladin": false,
@@ -4832,6 +5055,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -5017,6 +5241,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -5065,6 +5290,197 @@
         "bombardTower": false,
         "guardTower": true,
         "keep": false
+      }
+    }
+  },
+  {
+    "name": "Poles",
+    "characteristics": {
+      "uniqueUnits": [
+        {
+          "name": "Obuch",
+          "description": "Infantry unit which can tear the armor from the enemy units"
+        },
+        {
+          "name": "Winged Hussar",
+          "description": "Light Cavalry upgrade"
+        }
+      ],
+      "uniqueTechs": {
+        "castleAge": {
+          "name": "Szlachta Privileges",
+          "description": "Knight line costs -60% gold"
+        },
+        "imperialAge": {
+          "name": "Lechitic Legacy",
+          "description": "Scout Cavalry line deals trample damage"
+        }
+      },
+      "civBonuses": [
+        "Villagers recover 5 HPs per minute in the Dark Age, 10 in the Feudal Age, 15 in the Castle Age, and 20 in the Imperial Age",
+        "Folwark replaces Mill.",
+        "Stone miners generate gold in addition to stone."
+      ],
+      "teamBonus": "Scout Cavalry, Light Cavalry, Hussar, and Winged Hussar +1 attack vs. archers"
+    },
+    "techTree": {
+      "archeryRange": {
+        "archer": true,
+        "crossbowman": true,
+        "arbalester": true,
+        "skirmisher": true,
+        "eliteSkirmisher": true,
+        "cavalryArcher": true,
+        "heavyCavalryArcher": true,
+        "handCannoneer": false,
+        "thumbRing": true,
+        "parthianTactics": false
+      },
+      "barracks": {
+        "militia": true,
+        "manAtArms": true,
+        "longSwordsman": true,
+        "twoHandedSwordsman": true,
+        "champion": true,
+        "spearman": true,
+        "pikeman": true,
+        "halberdier": false,
+        "eagleScout": false,
+        "eagleWarrior": false,
+        "eliteEagleWarrior": false,
+        "supplies": true,
+        "squires": true,
+        "arson": true
+      },
+      "blacksmith": {
+        "forging": true,
+        "ironCasting": true,
+        "blastFurnace": true,
+        "scaleMailArmor": true,
+        "chainMailArmor": true,
+        "plateMailArmor": true,
+        "fletching": true,
+        "bodkinArrow": true,
+        "bracer": true,
+        "paddedArcherArmor": true,
+        "leatherArcherArmor": true,
+        "ringArcherArmor": false,
+        "scaleBardingArmor": true,
+        "chainBardingArmor": true,
+        "plateBardingArmor": false
+      },
+      "castle": {
+        "hoardings": true,
+        "conscription": true,
+        "sappers": true
+      },
+      "dock": {
+        "fishingShip": true,
+        "transportShip": true,
+        "tradeCog": true,
+        "galley": true,
+        "warGalley": true,
+        "galleon": true,
+        "fireGalley": true,
+        "fireShip": true,
+        "fastFireShip": true,
+        "demolitionRaft": true,
+        "demolitionShip": true,
+        "heavyDemolitionShip": false,
+        "cannonGalleon": true,
+        "eliteCannonGalleon": false,
+        "gillnets": true,
+        "careening": true,
+        "dryDock": false,
+        "shipwright": false
+      },
+      "lumberCamp": {
+        "doubleBitAxe": true,
+        "bowSaw": true,
+        "twoManSaw": false
+      },
+      "market": {
+        "caravan": true,
+        "coinage": true,
+        "banking": true,
+        "guilds": true
+      },
+      "mill": {
+        "horseCollar": true,
+        "heavyPlow": true,
+        "cropRotation": true
+      },
+      "miningCamp": {
+        "goldMining": true,
+        "goldShaftMining": false,
+        "stoneMining": true,
+        "stoneShaftMining": true
+      },
+      "monastery": {
+        "redemption": true,
+        "atonement": false,
+        "herbalMedicine": true,
+        "heresy": false,
+        "sanctity": true,
+        "fervor": true,
+        "faith": true,
+        "illumination": false,
+        "blockPrinting": true,
+        "theocracy": true
+      },
+      "stable": {
+        "scoutCavalry": true,
+        "lightCavalry": true,
+        "hussar": true,
+        "wingedHussar": true,
+        "knight": true,
+        "cavalier": true,
+        "paladin": false,
+        "camelRider": false,
+        "heavyCamelRider": false,
+        "battleElephant": false,
+        "eliteBattleElephant": false,
+        "steppeLancer": false,
+        "eliteSteppeLancer": false,
+        "bloodlines": true,
+        "husbandry": true
+      },
+      "siegeWorkshop": {
+        "batteringRam": true,
+        "cappedRam": true,
+        "siegeRam": true,
+        "mangonel": true,
+        "onager": true,
+        "siegeOnager": false,
+        "scorpion": true,
+        "heavyScorpion": false,
+        "bombardCannon": true,
+        "siegeTower": true
+      },
+      "townCenter": {
+        "townWatch": true,
+        "townPatrol": true,
+        "wheelbarrow": true,
+        "handCart": true,
+        "loom": true,
+        "feudalAge": true,
+        "castleAge": true,
+        "imperialAge": true
+      },
+      "university": {
+        "treadmillCrane": true,
+        "masonry": true,
+        "architecture": false,
+        "ballistics": true,
+        "heatedShot": false,
+        "murderHoles": true,
+        "arrowslits": true,
+        "chemistry": true,
+        "siegeEngineers": false,
+        "fortifiedWall": true,
+        "bombardTower": true,
+        "guardTower": true,
+        "keep": true
       }
     }
   },
@@ -5208,6 +5624,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -5285,7 +5702,7 @@
         "Galleys attack 25% faster.",
         "Camel units +10 HP."
       ],
-      "teamBonus": "Foot archers have +2 attack against standard buildings."
+      "teamBonus": "Foot archers have +3 attack against standard buildings."
     },
     "techTree": {
       "archeryRange": {
@@ -5396,6 +5813,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": false,
         "paladin": false,
@@ -5459,20 +5877,21 @@
       "uniqueTechs": {
         "castleAge": {
           "name": "First Crusade",
-          "description": "Upon researching, each Town Center (up to 5) spawns a one-time group of 7 Serjeants; also increases resistance against conversion."
+          "description": "Upon researching, each Town Center (up to 5) spawns a one-time group of 7 Serjeants; also increases resistance against conversion (effect identical with Faith)."
         },
         "imperialAge": {
-          "name": "Scutage",
-          "description": "Upon researching, each team member receives a one-time payment of 15 gold for each military unit that they own."
+          "name": "Hauberk",
+          "description": "Knight-line +1/+2 armor."
         }
       },
       "civBonuses": [
+        "Start with +100 additional stone.",
         "Castles and Town Centers are constructed 100% faster.",
         "Land military units (except siege units) receive 50% less bonus damage.",
         "Farm upgrades provide +100% additional food to Farms before they need to be reseeded.",
         "Can build Donjons, which replace the regular Watch Tower line."
       ],
-      "teamBonus": "Transport Ships +5 carry capacity and +10 armor versus anti-ship bonus damage."
+      "teamBonus": "The first Transport Ship is free and created instantly."
     },
     "techTree": {
       "archeryRange": {
@@ -5583,6 +6002,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -5769,6 +6189,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -5847,7 +6268,7 @@
         "Builders work 30% faster (20% for Wonders).",
         "Blacksmith upgrades cost no gold.",
         "Cannon Galleons have better accuracy and faster cannonballs.",
-        "Hand Cannoneers and Bombard Cannons fire 18% faster."
+        "Gunpowder units (except Conquistadors) fire 18% faster."
       ],
       "teamBonus": "Trade units generate +25% gold."
     },
@@ -5960,6 +6381,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -6151,6 +6573,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -6340,6 +6763,7 @@
         "scoutCavalry": true,
         "lightCavalry": false,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": true,
@@ -6528,6 +6952,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": true,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -6719,6 +7144,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,
@@ -6794,7 +7220,7 @@
         }
       },
       "civBonuses": [
-        "Warships are 15%/15%/20% cheaper in the Feudal/Castle/Imperial Age.",
+        "Warships (including Transport Ships) are 15%/15%/20% cheaper in the Feudal/Castle/Imperial Age.",
         "Infantry have +10%/+15%/+20% HP in the Feudal/Castle/Imperial Age.",
         "Wheelbarrow and Hand Cart are free."
       ],
@@ -6909,6 +7335,7 @@
         "scoutCavalry": true,
         "lightCavalry": true,
         "hussar": false,
+        "wingedHussar": true,
         "knight": true,
         "cavalier": true,
         "paladin": false,

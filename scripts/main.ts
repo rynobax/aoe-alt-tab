@@ -47,4 +47,5 @@ async function main(doImages) {
 
 main(DO_IMAGES)
   .catch(console.error)
-  .then(() => console.log("done"));
+  .then(() => console.log("done"))
+  .then(() => process.exit());

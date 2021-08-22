@@ -154,6 +154,7 @@ export const query = graphql`
             scoutCavalry
             lightCavalry
             hussar
+            wingedHussar
             knight
             cavalier
             paladin

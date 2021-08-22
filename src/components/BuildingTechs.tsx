@@ -4,7 +4,7 @@ import capitalize from "lodash/capitalize";
 import kebabCase from "lodash/kebabCase";
 
 import { TechTree } from "../../sources/wiki/data/techs";
-import { nameForWiki } from "../../scripts/util";
+import { namesForWiki } from "../../scripts/util";
 import SuspenseImage from "./SuspenseImage";
 
 type Building = keyof TechTree;
@@ -167,14 +167,20 @@ const BuildingTechs: React.FC<BuildingTechsProps> = ({
         let filteredRow = row;
         if (row[0] === "camelRider")
           filteredRow = filterSpecificCavs(tree, row as any);
+        if (row[0] === "scoutCavalry" && tree.stable.wingedHussar) {
+          filteredRow = filteredRow.filter((e) => e !== "hussar");
+          filteredRow.push("wingedHussar");
+        }
         if (!isMesoCiv && row[0] === "eagleScout") return null;
         return (
           <Row key={filteredRow.join("-")}>
             {filteredRow.map((k) => {
               const haveIt = tree[building][k];
-              const imageName = `${nameForWiki(k)}${
-                haveIt ? "available" : "unavailable"
-              }.png`;
+              if (k === "wingedHussar") console.log(namesForWiki(k));
+              const wikiName = namesForWiki(k)[0];
+              const imageName = wikiName.includes(".png")
+                ? wikiName
+                : `${wikiName}${haveIt ? "available" : "unavailable"}.png`;
               const path = `techs/${imageName}`;
               const src = images[path];
               return <Image key={k} src={src} />;

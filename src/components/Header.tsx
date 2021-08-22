@@ -30,6 +30,8 @@ const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
     setShowDialog(false);
   }
 
+  const sortedCivs = civs.sort((a, b) => a.localeCompare(b));
+
   return (
     <CustomHeader>
       <TitleSection>
@@ -45,7 +47,7 @@ const Header: React.FC<HeaderProps> = ({ civs, selectedCiv, onCivChange }) => {
               ref={(ref) => setSelectRef(ref)}
               autoFocus
             >
-              {civs.map((civ) => (
+              {sortedCivs.map((civ) => (
                 <ComboOption key={civ} value={civ}>
                   {civ}
                 </ComboOption>

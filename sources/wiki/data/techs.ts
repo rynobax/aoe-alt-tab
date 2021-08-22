@@ -96,6 +96,7 @@ export const baseTechTree = () => ({
     scoutCavalry: true,
     lightCavalry: true,
     hussar: true,
+    wingedHussar: true,
     knight: true,
     cavalier: true,
     paladin: true,
